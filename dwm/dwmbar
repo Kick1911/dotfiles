@@ -1,0 +1,24 @@
+#!/bin/sh
+
+disk=
+vol=
+date=
+load=
+artist=
+album=
+trackno=
+
+while xsetroot -name " $trackno|$artist - $album| $vol $disk $date $load"
+do
+	disk=`df -h | awk -- '/\/dev\/sda1/{print $4}'`
+	vol=`amixer sget Master | awk -- '/[0-9]+%/{ print $5; exit }'`
+	date=`date`
+	load=`uptime | sed 's/.*,//'`
+	cmus-remote -Q > /tmp/cmus_status
+	if [ $? -eq 0 ] ; then
+		artist=`gawk 'match($0, / artist (.+)$/, arr){print arr[1]}' /tmp/cmus_status`
+		album=`gawk 'match($0, / album (.+)$/, arr){print arr[1]}' /tmp/cmus_status`
+		trackno=`gawk 'match($0, / tracknumber (.+)$/, arr){print arr[1]}' /tmp/cmus_status`
+	fi
+	sleep 0.5
+done
