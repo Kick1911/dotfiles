@@ -4,6 +4,18 @@ URxvt*font: xft:DejaVu Sans Mono:size=8,style=regular
 URxvt*scrollBar: false
 URxvt*fading: 40
 
+!! Click URLs !!
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+URxvt.colorUL: #4682B4
+
+!! Yank URLs !!
+URxvt.perl-ext: default,url-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
+
 XTerm.vt100.backarrowKey: false
 XTerm.ttyModes: erase ^?
 XTerm*faceName: DejaVu Sans Mono
