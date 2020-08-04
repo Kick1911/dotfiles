@@ -1,2 +1,5 @@
 [core]
 	excludesfile = /home/kick/.gitignore_global
+[user]
+	email = caswallengelsman6@gmail.com
+	name = Kickness
