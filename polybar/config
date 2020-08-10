@@ -27,8 +27,8 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
-[bar/mybar]
-;monitor = ${env:MONITOR:HDMI-1}
+[bar/main]
+monitor = HDMI-0
 width = 100%
 height = 25
 ;offset-x = 1%
@@ -52,13 +52,64 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+font-0 = ubuntumono:pixelsize=11;1
+font-1 = unifont:fontformat=truetype:size=9:antialias=false;0
+font-2 = Siji:pixelsize=11;1
 
-modules-left = bspwm i3
+modules-left = i3
 modules-center = 
-modules-right = filesystem xbacklight pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = filesystem xkeyboard memory cpu wlan eth temperature date powermenu
+
+tray-position = right
+tray-padding = 2
+;tray-background = #0063ff
+
+;wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/laptop]
+monitor = LVDS
+width = 100%
+height = 25
+;offset-x = 1%
+;offset-y = 1%
+radius = 6.0
+fixed-center = false
+bottom = true
+
+background = #00000000
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 4
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = ubuntumono:pixelsize=11;1
+font-1 = unifont:fontformat=truetype:size=9:antialias=false;0
+font-2 = Siji:pixelsize=11;1
+
+modules-left = i3
+modules-center = 
+modules-right = filesystem xkeyboard memory cpu wlan eth temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -221,7 +272,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlan0
+interface = wlp3s0b1
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -243,7 +294,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = eth0
+interface = enp2s0
 interval = 3.0
 
 format-connected-underline = #55aa55
@@ -272,33 +323,6 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
 label = %date% %time%
-
-[module/pulseaudio]
-type = internal/pulseaudio
-
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
-label-volume-foreground = ${root.foreground}
-
-label-muted = 🔇 muted
-label-muted-foreground = #666
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/alsa]
 type = internal/alsa
