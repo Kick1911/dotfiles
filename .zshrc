@@ -35,6 +35,7 @@ export PATH=$PATH:/home/kick/.local/bin
 export LD_LIBRARY_PATH=/opt/lib
 export LIBRARY_PATH=$LD_LIBRARY_PATH
 export C_INCLUDE_PATH=/opt/include
+export CC=gcc
 
 ## Settings for umask
 #if (( EUID == 0 )); then
@@ -170,9 +171,13 @@ export C_INCLUDE_PATH=/opt/include
 #zstyle ':completion:*' special-dirs true
 
 ## aliases ##
-alias vi='vim'
+alias vi='nvim'
 alias ls='ls -N --color=auto -v'
 alias feh='feh -sD 5'
+alias load='sudo xbps-install'
+alias search='sudo xbps-query -Rs'
+alias remove='sudo xbps-remove -R'
+alias mountusb='sudo mount -t vfat -o uid=kick,gid=kick,fmask=117'
 
 ## translate
 #alias u='translate -i'
@@ -343,3 +348,5 @@ alias feh='feh -sD 5'
 #vimhelp ()    { vim -c "help $1" -c on -c "au! VimEnter *" }
 
 ## END OF FILE #################################################################
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -51,6 +51,8 @@ let g:nerdtree_tabs_open_on_console_startup = 2
 let g:nerdtree_tabs_open_on_new_tab = 1
 set nohlsearch
 set number
+set tabstop=4
+set shiftwidth=4
 
 " Commands
 autocmd BufWritePost * NERDTreeFocus | execute 'normal R' | wincmd p
@@ -58,4 +60,5 @@ autocmd BufWritePost * NERDTreeFocus | execute 'normal R' | wincmd p
 " Shortcuts
 tnoremap <Esc> <C-\><C-n>
 nnoremap à :belowright split term://zsh<CR>:resize 10<CR>A
+noremap gr gT
 

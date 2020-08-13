@@ -1,0 +1,3 @@
+#!/bin/sh
+fstrim -v / >> /var/log/fstrim.log
+echo `date` 'TRIM has executed' >> /var/log/fstrim.log
