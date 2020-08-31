@@ -6,16 +6,18 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 
 " ---
-Plug 'scrooloose/nerdtree'  " NERD Tree
+Plug 'Kick1911/nerdtree'  " NERD Tree
 Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status in Nerd tree
-Plug 'itchyny/lightline.vim'  " UI
+Plug 'vim-airline/vim-airline' " UI
+" Plug 'ryanoasis/nerd-fonts' " Fonts
+" Plug 'ryanoasis/vim-devicons' " Icons
 Plug 'ap/vim-buftabline'  " buffers to tabline
 Plug 'tomasr/molokai'   " sublime theme
 Plug 'dunstontc/vim-vscode-theme'  " vscode theme
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'jiangmiao/auto-pairs'
+Plug 'Shougo/deoplete-clangx'
 Plug 'sheerun/vim-polyglot'
 
 Plug 'janko-m/vim-test'  " Tests
@@ -45,20 +47,53 @@ Plug 'airblade/vim-gitgutter'
 " Initialize plugin system
 call plug#end()
 
-
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
 let g:deoplete#enable_at_startup = 1
 let g:nerdtree_tabs_open_on_console_startup = 2
 let g:nerdtree_tabs_open_on_new_tab = 1
-set nohlsearch
+let g:workspace_autosave_always = 1
+let g:airline_powerline_fonts=1
 set number
-set tabstop=4
-set shiftwidth=4
+set tabstop=4 shiftwidth=4 expandtab
+set backspace=
 
 " Commands
 autocmd BufWritePost * NERDTreeFocus | execute 'normal R' | wincmd p
 
 " Shortcuts
 tnoremap <Esc> <C-\><C-n>
-nnoremap à :belowright split term://zsh<CR>:resize 10<CR>A
+nnoremap à :belowright split term://zsh<CR>:resize 15<CR>A
+nnoremap <Esc> :set hlsearch!<CR>
 noremap gr gT
+
+function! MakeSession()
+  let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  if (filewritable(b:sessiondir) != 2)
+    exe 'silent !mkdir -p ' b:sessiondir
+    redraw!
+  endif
+  let b:filename = b:sessiondir . '/session.vim'
+  exe "mksession! " . b:filename
+endfunction
+
+function! LoadSession()
+  let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  let b:sessionfile = b:sessiondir . "/session.vim"
+  if (filereadable(b:sessionfile))
+    exe 'source ' b:sessionfile
+  else
+    echo "No session loaded."
+  endif
+endfunction
+
+" au VimEnter * nested :call LoadSession()
+" au VimLeave * :call MakeSession()
 

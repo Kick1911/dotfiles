@@ -349,4 +349,5 @@ alias mountusb='sudo mount -t vfat -o uid=kick,gid=kick,fmask=117'
 
 ## END OF FILE #################################################################
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f /usr/share/doc/fzf/key-bindings.zsh ] && source /usr/share/doc/fzf/key-bindings.zsh	
+[ -f /usr/share/doc/fzf/completion.zsh ] && source /usr/share/doc/fzf/completion.zsh

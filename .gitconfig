@@ -3,3 +3,11 @@
 [user]
 	email = caswallengelsman6@gmail.com
 	name = Kickness
+[mergetool]
+	path = nvim
+[merge]
+	tool = vimdiff
+[mergetool "vimdiff"]
+	path = nvim
+[pull]
+	rebase = false
