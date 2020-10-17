@@ -21,6 +21,7 @@ Plug 'Shougo/deoplete-clangx'
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/syntastic' " Syntax / linter
 Plug 'rking/ag.vim' " Text search
+Plug 'Chun-Yang/vim-action-ag' " Ag compliment
 Plug 'rafi/awesome-vim-colorschemes'
 
 Plug 'janko-m/vim-test'  " Tests
@@ -64,17 +65,22 @@ let g:deoplete#enable_at_startup = 1
 " let g:nerdtree_tabs_open_on_new_tab = 1
 let g:workspace_autosave_always = 1
 let g:airline_powerline_fonts=1
+set cpoptions+=u " Fix undo
+set cpoptions+=$ " Fix editing not really
+set cpoptions+=v " Fix backspacing
 set number
 set tabstop=4 shiftwidth=4 expandtab
 set backspace=
 set nosmartindent
 set nocindent
-colorscheme dogrun
 
+" https://github.com/rafi/awesome-vim-colorschemes
+colorscheme dogrun
+hi Search cterm=NONE ctermfg=red ctermbg=lightgreen
 " Enable true color 启用终端24位色
-if exists('+termguicolors')
-  set termguicolors
-endif
+" if exists('+termguicolors')
+"  set termguicolors
+" endif
 
 " Commands
 " autocmd BufWritePost * NERDTreeFocus | execute 'normal R' | wincmd p
@@ -85,4 +91,8 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <Esc> :set hlsearch!<CR>
 noremap gr gT
 noremap <M-`> :NERDTreeToggle<CR>
+" use * to search current word in normal mode
+nmap * <Plug>AgActionWord
+" use * to search selected text in visual mode
+vmap * <Plug>AgActionVisual
 
