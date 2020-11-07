@@ -63,6 +63,7 @@ let g:lightline = {
 let g:deoplete#enable_at_startup = 1
 " let g:nerdtree_tabs_open_on_console_startup = 2
 " let g:nerdtree_tabs_open_on_new_tab = 1
+let g:fzf_preview_window = ['bottom:30%', 'ctrl-/']
 let g:workspace_autosave_always = 1
 let g:airline_powerline_fonts=1
 set cpoptions+=u " Fix undo
@@ -73,6 +74,7 @@ set tabstop=4 shiftwidth=4 expandtab
 set backspace=
 set nosmartindent
 set nocindent
+set paste
 
 " https://github.com/rafi/awesome-vim-colorschemes
 colorscheme dogrun
@@ -91,6 +93,9 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <Esc> :set hlsearch!<CR>
 noremap gr gT
 noremap <M-`> :NERDTreeToggle<CR>
+noremap <C-f> :FZF<CR>
+noremap tg :Gstatus<CR>
+noremap td :Gdiffsplit<CR>
 " use * to search current word in normal mode
 nmap * <Plug>AgActionWord
 " use * to search selected text in visual mode
