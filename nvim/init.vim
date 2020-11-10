@@ -16,6 +16,7 @@ Plug 'tomasr/molokai'   " sublime theme
 Plug 'dunstontc/vim-vscode-theme'  " vscode theme
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete-clangx'
 Plug 'sheerun/vim-polyglot'
@@ -69,12 +70,12 @@ let g:airline_powerline_fonts=1
 set cpoptions+=u " Fix undo
 set cpoptions+=$ " Fix editing not really
 set cpoptions+=v " Fix backspacing
+set hidden " Can change buffers without writing file
 set number
 set tabstop=4 shiftwidth=4 expandtab
 set backspace=
 set nosmartindent
 set nocindent
-set paste
 
 " https://github.com/rafi/awesome-vim-colorschemes
 colorscheme dogrun
@@ -92,10 +93,11 @@ tnoremap <Esc> <C-\><C-n>
 " nnoremap à :belowright split term://zsh<CR>:resize 15<CR>A
 nnoremap <Esc> :set hlsearch!<CR>
 noremap gr gT
-noremap <M-`> :NERDTreeToggle<CR>
+noremap <M-`> :NERDTreeFind<CR>
 noremap <C-f> :FZF<CR>
 noremap tg :Gstatus<CR>
 noremap td :Gdiffsplit<CR>
+noremap tb :GBranches<CR>
 " use * to search current word in normal mode
 nmap * <Plug>AgActionWord
 " use * to search selected text in visual mode
