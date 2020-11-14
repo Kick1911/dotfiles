@@ -66,6 +66,8 @@ let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 let g:workspace_autosave_always = 1
+let g:gitgutter_highlight_lines = 1
+let g:gitgutter_highlight_linenrs = 1
 
 " Vim config
 set cpoptions+=u " Fix undo
@@ -95,9 +97,15 @@ nnoremap <Esc> :set hlsearch!<CR>
 noremap gr gT
 noremap <M-`> :NERDTreeFind<CR>
 noremap <C-f> :FZF<CR>
+noremap tr :bp<CR>
+noremap ty :bn<CR>
+noremap tq :bd<CR>
+noremap ]h :GitGutterNextHunk<CR>
+noremap [h :GitGutterPrevHunk<CR>
 noremap tg :Gstatus<CR>
 noremap td :Gdiffsplit!<CR>
 noremap tb :GBranches<CR>
+
 " use * to search current word in normal mode
 nmap * <Plug>AgActionWord
 " use * to search selected text in visual mode
