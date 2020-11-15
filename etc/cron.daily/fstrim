@@ -1,3 +1,8 @@
 #!/bin/sh
-fstrim -v / >> /var/log/fstrim.log
-echo `date` 'TRIM has executed' >> /var/log/fstrim.log
+
+notify-send.sh 'TRIM in progress' --icon=dialog-information
+
+result=`fstrim -v /`
+
+notify-send.sh 'TRIM Complete!' "$result" --icon=dialog-information
+echo $result'\n'`date`' TRIM has executed' >> /var/log/fstrim.log
