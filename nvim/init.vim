@@ -79,6 +79,7 @@ set tabstop=4 shiftwidth=4 expandtab
 set backspace=
 set nosmartindent
 set nocindent
+packadd termdebug
 set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<
 set list
 
@@ -97,9 +98,11 @@ nnoremap <Esc> :set hlsearch!<CR>
 noremap gr gT
 noremap <M-`> :NERDTreeFind<CR>
 noremap <C-f> :FZF<CR>
+noremap tt :b#<CR>
 noremap tr :bp<CR>
 noremap ty :bn<CR>
 noremap tq :bd<CR>
+noremap ts :GitGutterStageHunk<CR>
 noremap ]h :GitGutterNextHunk<CR>
 noremap [h :GitGutterPrevHunk<CR>
 noremap tg :Gstatus<CR>
