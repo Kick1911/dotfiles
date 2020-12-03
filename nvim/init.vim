@@ -66,7 +66,7 @@ let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 let g:workspace_autosave_always = 1
-let g:gitgutter_highlight_lines = 1
+" let g:gitgutter_highlight_lines = 1
 let g:gitgutter_highlight_linenrs = 1
 
 " Vim config
@@ -84,7 +84,7 @@ set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<
 set list
 
 " https://github.com/rafi/awesome-vim-colorschemes
-colorscheme dogrun
+" colorscheme dogrun
 hi Search cterm=NONE ctermfg=red ctermbg=lightgreen
 " Enable true color 启用终端24位色
 " if exists('+termguicolors')
