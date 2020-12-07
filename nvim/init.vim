@@ -80,7 +80,7 @@ set backspace=
 set nosmartindent
 set nocindent
 packadd termdebug
-set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<
+set listchars=tab:>-,trail:~,extends:>,precedes:<
 set list
 
 " https://github.com/rafi/awesome-vim-colorschemes
