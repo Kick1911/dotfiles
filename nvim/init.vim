@@ -66,7 +66,6 @@ let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 let g:workspace_autosave_always = 1
-" let g:gitgutter_highlight_lines = 1
 let g:gitgutter_highlight_linenrs = 1
 
 " Vim config
@@ -82,9 +81,13 @@ set nocindent
 packadd termdebug
 set listchars=tab:>-,trail:~,extends:>,precedes:<
 set list
+set colorcolumn=79
 
 " https://github.com/rafi/awesome-vim-colorschemes
 " colorscheme dogrun
+
+" Default colour of line number
+hi LineNr ctermfg=blue
 hi Search cterm=NONE ctermfg=red ctermbg=lightgreen
 " Enable true color 启用终端24位色
 " if exists('+termguicolors')
@@ -103,6 +106,7 @@ noremap tr :bp<CR>
 noremap ty :bn<CR>
 noremap tq :bd<CR>
 noremap ts :GitGutterStageHunk<CR>
+noremap tx :GitGutterUndoHunk<CR>
 noremap ]h :GitGutterNextHunk<CR>
 noremap [h :GitGutterPrevHunk<CR>
 noremap tg :Gstatus<CR>
