@@ -2,6 +2,7 @@
 
 notify-send 'TRIM in progress' --icon=dialog-information
 
+result=`fstrim -v /boot/efi`
 result=`fstrim -v /`
 
 notify-send 'TRIM Complete!' "$result" --icon=dialog-information

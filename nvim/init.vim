@@ -96,6 +96,7 @@ hi Search cterm=NONE ctermfg=red ctermbg=lightgreen
 
 " Shortcuts
 tnoremap <Esc> <C-\><C-n>
+nnoremap <C-w> <C-u>
 " nnoremap à :belowright split term://zsh<CR>:resize 15<CR>A
 nnoremap <Esc> :set hlsearch!<CR>
 noremap gr gT
