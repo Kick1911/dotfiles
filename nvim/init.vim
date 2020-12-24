@@ -20,23 +20,11 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete-clangx'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " Fast Python linter
 Plug 'sheerun/vim-polyglot'
-Plug 'rking/ag.vim' " Text search
-Plug 'Chun-Yang/vim-action-ag' " Ag compliment
-Plug 'rafi/awesome-vim-colorschemes'
-
-Plug 'janko-m/vim-test'  " Tests
+" Plug 'rking/ag.vim' " Text search
+" Plug 'Chun-Yang/vim-action-ag' " Ag compliment
+" Plug 'rafi/awesome-vim-colorschemes'
 
 " Code {{{
-Plug 'scrooloose/nerdcommenter'  " NERD commenter. Quickly comment lines
-Plug 'editorconfig/editorconfig-vim'
-Plug 'herringtondarkholme/yats.vim'  " Typescript syntax
-Plug 'posva/vim-vue'   " Vue JS syntax highlighting
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'prettier/vim-prettier'
-Plug 'othree/xml.vim'
-Plug 'othree/html5.vim'
-Plug 'cakebaker/scss-syntax.vim'
-
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }} " Markdown preview
 " }}}
 
@@ -58,7 +46,6 @@ let g:lightline = {
       \ },
       \ }
 let g:deoplete#enable_at_startup = 1
-let g:fzf_preview_window = ['bottom:30%', 'ctrl-/']
 let g:airline_theme = 'base16'
 let g:airline_powerline_fonts=1
 let g:airline_left_sep = ''
@@ -89,6 +76,13 @@ set colorcolumn=79
 " Default colour of line number
 hi LineNr ctermfg=blue
 hi Search cterm=NONE ctermfg=red ctermbg=lightgreen
+hi CocFloating ctermfg=red ctermbg=black
+hi ColorColumn ctermbg=131
+hi clear TabLineFill
+hi clear SignColumn
+hi clear GitGutterAdd
+hi clear GitGutterChange
+hi clear GitGutterDelete
 " Enable true color 启用终端24位色
 " if exists('+termguicolors')
 "  set termguicolors
@@ -96,12 +90,13 @@ hi Search cterm=NONE ctermfg=red ctermbg=lightgreen
 
 " Shortcuts
 tnoremap <Esc> <C-\><C-n>
-nnoremap <C-w> <C-u>
+nnoremap <C-e> <C-u>
 " nnoremap à :belowright split term://zsh<CR>:resize 15<CR>A
 nnoremap <Esc> :set hlsearch!<CR>
 noremap gr gT
 noremap <M-`> :NERDTreeFind<CR>
-noremap <C-f> :FZF<CR>
+noremap <C-f> :Files<CR>
+noremap <C-a> :Ag<CR>
 noremap tt :b#<CR>
 noremap tr :bp<CR>
 noremap ty :bn<CR>

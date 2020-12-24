@@ -1,7 +1,7 @@
 [core]
 	excludesfile = /home/kick/.gitignore_global
 [user]
-	email = caswallengelsman6@gmail.com
+	email = mail@cengelsman.com
 	name = Kickness
 [mergetool]
 	path = nvim

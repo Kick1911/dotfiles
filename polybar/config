@@ -21,7 +21,7 @@
 background = #222
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+foreground = #ffffff
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
@@ -56,9 +56,9 @@ font-0 = ubuntumono:pixelsize=11;1
 font-1 = unifont:fontformat=truetype:size=9:antialias=false;0
 font-2 = Siji:pixelsize=11;1
 
-modules-left = i3
-modules-center = 
-modules-right = filesystem xkeyboard memory cpu wlan eth temperature date powermenu
+modules-left = bspwm
+modules-center = xwindow
+modules-right = filesystem xkeyboard memory cpu wlan eth temperature date battery
 
 tray-position = right
 tray-padding = 2
@@ -107,9 +107,9 @@ font-0 = ubuntumono:pixelsize=11;1
 font-1 = unifont:fontformat=truetype:size=9:antialias=false;0
 font-2 = Siji:pixelsize=11;1
 
-modules-left = i3
-modules-center = 
-modules-right = filesystem xkeyboard memory cpu wlan eth temperature date powermenu
+modules-left = bspwm
+modules-center = xwindow
+modules-right = filesystem xkeyboard memory cpu wlan eth temperature date battery
 
 tray-position = right
 tray-padding = 2
@@ -272,7 +272,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp3s0b1
+interface = wlp58s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -294,7 +294,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp2s0
+interface = enp0s31f6
 interval = 3.0
 
 format-connected-underline = #55aa55
