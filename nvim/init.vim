@@ -10,9 +10,7 @@ Plug 'Kick1911/nerdtree'  " NERD Tree
 Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status in Nerd tree
 Plug 'vim-airline/vim-airline' " UI
 Plug 'vim-airline/vim-airline-themes' " Themes
-Plug 'ap/vim-buftabline'  " buffers to tabline
-Plug 'tomasr/molokai'   " sublime theme
-Plug 'dunstontc/vim-vscode-theme'  " vscode theme
+Plug 'ap/vim-buftabline'  " buffers to tabline ???
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
@@ -25,7 +23,7 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'rafi/awesome-vim-colorschemes'
 
 " Code {{{
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }} " Markdown preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 " }}}
 
 " GIT {{{
@@ -108,9 +106,4 @@ noremap [h :GitGutterPrevHunk<CR>
 noremap tg :Gstatus<CR>
 noremap td :Gdiffsplit!<CR>
 noremap tb :GBranches<CR>
-
-" use * to search current word in normal mode
-nmap * <Plug>AgActionWord
-" use * to search selected text in visual mode
-vmap * <Plug>AgActionVisual
 
