@@ -179,12 +179,11 @@ export CC=gcc
 
 ## aliases ##
 alias vi='nvim'
-alias tm='tmux -2'
 alias ls='ls -N --color=auto -v'
 alias load='sudo xbps-install'
 alias search='sudo xbps-query -Rs'
 alias remove='sudo xbps-remove -R'
-alias mountusb='sudo mount -t vfat -o uid=kick,gid=kick,fmask=117'
+alias mountusb='sudo mount -t vfat -o uid=$USER,gid=$USER,fmask=117'
 alias mountvault='sudo mount -t ecryptfs'
 alias cp='rsync --info=progress2 -auvz'
 
@@ -356,10 +355,8 @@ alias cp='rsync --info=progress2 -auvz'
 #vimpm ()      { vim `perldoc -l $1 | sed -e 's/pod$/pm/'` }
 #vimhelp ()    { vim -c "help $1" -c on -c "au! VimEnter *" }
 
-## END OF FILE #################################################################
-
-[ -f /usr/share/doc/fzf/key-bindings.zsh ] && source /usr/share/doc/fzf/key-bindings.zsh
-[ -f /usr/share/doc/fzf/completion.zsh ] && source /usr/share/doc/fzf/completion.zsh
+[ -f $HOME/.fzf/shell/key-bindings.zsh ] && source $HOME/.fzf/shell/key-bindings.zsh
+[ -f $HOME/.fzf/shell/completion.zsh ] && source $HOME/.fzf/shell/completion.zsh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

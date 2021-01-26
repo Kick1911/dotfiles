@@ -10,7 +10,6 @@ Plug 'Kick1911/nerdtree'  " NERD Tree
 Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status in Nerd tree
 Plug 'vim-airline/vim-airline' " UI
 Plug 'vim-airline/vim-airline-themes' " Themes
-Plug 'ap/vim-buftabline'  " buffers to tabline ???
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
@@ -95,9 +94,8 @@ noremap gr gT
 noremap <M-`> :NERDTreeFind<CR>
 noremap <C-f> :Files<CR>
 noremap <C-a> :Ag<CR>
+noremap tw :Buffers<CR>
 noremap tt :b#<CR>
-noremap tr :bp<CR>
-noremap ty :bn<CR>
 noremap tq :bd<CR>
 noremap ts :GitGutterStageHunk<CR>
 noremap tx :GitGutterUndoHunk<CR>
@@ -106,4 +104,5 @@ noremap [h :GitGutterPrevHunk<CR>
 noremap tg :Gstatus<CR>
 noremap td :Gdiffsplit!<CR>
 noremap tb :GBranches<CR>
+noremap tf :Gfetch<CR>
 
