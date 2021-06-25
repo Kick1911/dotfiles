@@ -13,8 +13,7 @@ Plug 'vim-airline/vim-airline-themes' " Themes
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/deoplete-clangx'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " Fast Python linter
 Plug 'sheerun/vim-polyglot'
 " Plug 'rking/ag.vim' " Text search
@@ -97,6 +96,7 @@ noremap <C-a> :Ag<CR>
 noremap tw :Buffers<CR>
 noremap tt :b#<CR>
 noremap tq :bd<CR>
+noremap tw :Buffers<CR>
 noremap ts :GitGutterStageHunk<CR>
 noremap tx :GitGutterUndoHunk<CR>
 noremap ]h :GitGutterNextHunk<CR>
@@ -105,4 +105,10 @@ noremap tg :Gstatus<CR>
 noremap td :Gdiffsplit!<CR>
 noremap tb :GBranches<CR>
 noremap tf :Gfetch<CR>
+
+" Disable movement in insert mode
+inoremap <up> <NOP>
+inoremap <down> <NOP>
+inoremap <left> <NOP>
+inoremap <right> <NOP>
 
