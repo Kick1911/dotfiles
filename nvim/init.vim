@@ -91,7 +91,7 @@ nnoremap <C-e> <C-u>
 nnoremap <Esc> :set hlsearch!<CR>
 noremap gr gT
 noremap <M-`> :NERDTreeFind<CR>
-noremap <C-f> :Files<CR>
+noremap <C-f> :GFiles<CR>
 noremap <C-a> :Ag<CR>
 noremap tw :Buffers<CR>
 noremap tt :b#<CR>
@@ -101,14 +101,17 @@ noremap ts :GitGutterStageHunk<CR>
 noremap tx :GitGutterUndoHunk<CR>
 noremap ]h :GitGutterNextHunk<CR>
 noremap [h :GitGutterPrevHunk<CR>
-noremap tg :Gstatus<CR>
+noremap tg :Git<CR>
 noremap td :Gdiffsplit!<CR>
 noremap tb :GBranches<CR>
-noremap tf :Gfetch<CR>
+noremap tf :Git fetch<CR>
 
 " Disable movement in insert mode
 inoremap <up> <NOP>
 inoremap <down> <NOP>
 inoremap <left> <NOP>
 inoremap <right> <NOP>
+
+" Visual mode search
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 

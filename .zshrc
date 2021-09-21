@@ -180,6 +180,7 @@ export CC=gcc
 ## aliases ##
 alias vi='nvim'
 alias ls='ls -N --color=auto -v'
+alias upgrade='sudo vkpurge rm all; sudo xbps-install -Su'
 alias load='sudo xbps-install'
 alias search='sudo xbps-query -Rs'
 alias remove='sudo xbps-remove -R'
