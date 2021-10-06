@@ -66,11 +66,6 @@ export CC=gcc
 
 ## ZLE tweaks ##
 
-bindkey -s '\C-h' '\033[D'
-bindkey -s '\C-j' '\033[B'
-bindkey -s '\C-k' '\033[A'
-bindkey -s '\C-l' '\033[C'
-
 ## use the vi navigation keys (hjkl) besides cursor keys in menu completion
 #bindkey -M menuselect 'h' vi-backward-char        # left
 #bindkey -M menuselect 'k' vi-up-line-or-history   # up
