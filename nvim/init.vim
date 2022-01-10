@@ -49,7 +49,7 @@ let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 let g:workspace_autosave_always = 1
-let g:gitgutter_highlight_linenrs = 1
+let g:gitgutter_highlight_linenrs = 0
 
 " Vim config
 set cpoptions+=u " Fix undo

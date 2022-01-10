@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	exec xfce4-terminal
+	xfce4-terminal
 
 # program launcher
 super + d
