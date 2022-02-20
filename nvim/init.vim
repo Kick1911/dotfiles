@@ -15,7 +15,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " Fast Python linter
-Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/coc.nvim' " coc.nvim C syntax
+" Plug 'sheerun/vim-polyglot'
 " Plug 'rking/ag.vim' " Text search
 " Plug 'Chun-Yang/vim-action-ag' " Ag compliment
 " Plug 'rafi/awesome-vim-colorschemes'
@@ -65,6 +66,7 @@ packadd termdebug
 set listchars=tab:>-,trail:~,extends:>,precedes:<
 set list
 set colorcolumn=79
+setlocal foldmethod=syntax
 
 " https://github.com/rafi/awesome-vim-colorschemes
 " colorscheme dogrun
@@ -90,7 +92,7 @@ nnoremap <C-e> <C-u>
 " nnoremap à :belowright split term://zsh<CR>:resize 15<CR>A
 nnoremap <Esc> :set hlsearch!<CR>
 noremap gr gT
-noremap <M-`> :NERDTreeFind<CR>
+noremap <M-Esc> :NERDTreeFind<CR>
 noremap <C-f> :GFiles<CR>
 noremap <C-a> :Ag<CR>
 noremap tw :Buffers<CR>
