@@ -3,7 +3,8 @@
 notify-send 'TRIM in progress' --icon=dialog-information
 
 result=`fstrim -v /boot/efi`
+notify-send 'TRIM /boot/efi Complete!' "$result" --icon=dialog-information
 result=`fstrim -v /`
+notify-send 'TRIM / Complete!' "$result" --icon=dialog-information
 
-notify-send 'TRIM Complete!' "$result" --icon=dialog-information
 echo $result'\n'`date`' TRIM has executed' >> /var/log/fstrim.log

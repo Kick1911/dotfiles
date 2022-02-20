@@ -7,7 +7,7 @@ call plug#begin('~/.vim/plugged')
 
 " ---
 Plug 'Kick1911/nerdtree'  " NERD Tree
-Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status in Nerd tree
+" Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status in Nerd tree
 Plug 'vim-airline/vim-airline' " UI
 Plug 'vim-airline/vim-airline-themes' " Themes
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -15,14 +15,16 @@ Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " Fast Python linter
-Plug 'neoclide/coc.nvim' " coc.nvim C syntax
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " coc.nvim C syntax
+" Plug 'deoplete-plugins/deoplete-clang'
+" Plug 'dense-analysis/ale'
 " Plug 'sheerun/vim-polyglot'
 " Plug 'rking/ag.vim' " Text search
 " Plug 'Chun-Yang/vim-action-ag' " Ag compliment
 " Plug 'rafi/awesome-vim-colorschemes'
 
 " Code {{{
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 " }}}
 
 " GIT {{{
@@ -66,7 +68,7 @@ packadd termdebug
 set listchars=tab:>-,trail:~,extends:>,precedes:<
 set list
 set colorcolumn=79
-setlocal foldmethod=syntax
+setlocal foldmethod=indent
 
 " https://github.com/rafi/awesome-vim-colorschemes
 " colorscheme dogrun

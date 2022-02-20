@@ -186,7 +186,7 @@ alias search='sudo xbps-query -Rs'
 alias remove='sudo xbps-remove -R'
 alias mountusb='sudo mount -t vfat -o uid=$USER,gid=$USER,fmask=117'
 alias mountvault='sudo mount -t ecryptfs'
-alias cp='rsync --info=progress2 -auvz'
+# alias cp='rsync --info=progress2 -auvz'
 
 ## translate
 #alias u='translate -i'

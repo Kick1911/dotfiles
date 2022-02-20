@@ -58,7 +58,7 @@ font-2 = Siji:pixelsize=11;1
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = filesystem xkeyboard memory cpu wlan eth temperature date battery
+modules-right = mpd filesystem xkeyboard memory cpu wlan eth temperature date battery
 
 tray-position = right
 tray-padding = 2
@@ -109,7 +109,7 @@ font-2 = Siji:pixelsize=11;1
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = filesystem xkeyboard memory cpu wlan eth temperature date battery
+modules-right = mpd filesystem xkeyboard memory cpu wlan eth temperature date battery
 
 tray-position = right
 tray-padding = 2
