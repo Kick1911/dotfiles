@@ -2,7 +2,8 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor HDMI2 -d I II III IV V VI VII VIII IX X
+bspc monitor eDP1 -d I
 
 bspc config border_width         0
 bspc config window_gap          12
@@ -20,3 +21,8 @@ bspc rule -a Screenkey manage=off
 polybar -c /home/kick/.config/polybar/config main &
 polybar -c /home/kick/.config/polybar/config laptop &
 xsetroot -cursor_name left_ptr
+
+xfce4-session &
+picom &
+unclutter &
+/scripts/52-background-image.sh

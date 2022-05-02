@@ -14,7 +14,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " Fast Python linter
+" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " Fast Python linter
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " coc.nvim C syntax
 " Plug 'deoplete-plugins/deoplete-clang'
 " Plug 'dense-analysis/ale'
