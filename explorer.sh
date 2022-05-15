@@ -2,13 +2,18 @@
 
 # Environment variables
 EDITOR=nvim
+FZF_HISTORY=~/.fzf_history
+
+
 
 
 while true
 do
-  SELECTED=`ls -d * */* | fzf --bind ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all --no-mouse -m | awk '{print "\"" $0 "\""}'`
+  last_search=`tail -n 1 $FZF_HISTORY`
+  SELECTED=`ls -d * */* | fzf -q "$last_search" --history=$FZF_HISTORY --bind ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all --no-mouse -m | awk '{print "\"" $0 "\""}'`
   if [ -z "$SELECTED" ]
   then
+      printf '\n' >> $FZF_HISTORY # Empty search
       read action
       $action
       continue
@@ -16,8 +21,10 @@ do
 
   clear
   echo $SELECTED
+
   printf "$ "
   read action
+
   if [ "$action" = "vi" ]; then
       session="Code"
       if [ -z "${TMUX}" ]; then
