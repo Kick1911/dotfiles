@@ -1,8 +1,12 @@
 #!/bin/sh
 
+# Environment variables
+EDITOR=nvim
+
+
 while true
 do
-  SELECTED=`ls -d */* | fzf --no-mouse -m | awk '{print "\"" $0 "\""}'`
+  SELECTED=`ls -d * */* | fzf --bind ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all --no-mouse -m | awk '{print "\"" $0 "\""}'`
   if [ -z "$SELECTED" ]
   then
       read action
@@ -16,11 +20,17 @@ do
   read action
   if [ "$action" = "vi" ]; then
       session="Code"
-      tmux new-session -d -s $session
-      tmux new-window -t $session:1 -n 'NVim'
-      tmux send-keys -t 'NVim' "nvim $SELECTED" C-m
-      tmux attach-session -t $SESSION:1
+      if [ -z "${TMUX}" ]; then
+          tmux new-session -d -s $session
+          tmux new-window -t $session:1 -n $EDITOR
+          tmux send-keys -t $EDITOR "$EDITOR $SELECTED" C-m
+          tmux attach-session -t $SESSION:1
+      else
+          $EDITOR $SELECTED
+      fi
   elif [ "$action" = "mpv" ]; then
+      eval $action $SELECTED > /dev/null 2>&1 &
+  elif [ "$action" = "feh" ]; then
       eval $action $SELECTED > /dev/null 2>&1 &
   else
       eval $action $SELECTED
