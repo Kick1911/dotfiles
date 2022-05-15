@@ -22,11 +22,11 @@ do
       session="Code"
       if [ -z "${TMUX}" ]; then
           tmux new-session -d -s $session
-          tmux new-window -t $session:1 -n $EDITOR
+          tmux rename-window -t 0 $EDITOR
           tmux send-keys -t $EDITOR "$EDITOR $SELECTED" C-m
-          tmux attach-session -t $SESSION:1
+          tmux attach-session -t $SESSION:0
       else
-          $EDITOR $SELECTED
+          eval $EDITOR $SELECTED
       fi
   elif [ "$action" = "mpv" ]; then
       eval $action $SELECTED > /dev/null 2>&1 &
