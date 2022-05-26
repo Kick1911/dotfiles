@@ -39,6 +39,9 @@ do
       eval $action $SELECTED > /dev/null 2>&1 &
   elif [ "$action" = "feh" ]; then
       eval $action $SELECTED > /dev/null 2>&1 &
+  elif [ "$action" = "cd" ]; then
+      printf '\n' >> $FZF_HISTORY # Clear search after cd TODO: Do better
+      eval cd $SELECTED
   else
       eval $action $SELECTED
   fi
