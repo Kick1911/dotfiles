@@ -368,3 +368,4 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 bindkey -v
+KEYTIMEOUT=1 # Remove lag on escape
