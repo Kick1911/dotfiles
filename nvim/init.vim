@@ -96,7 +96,7 @@ nnoremap <Esc> :set hlsearch!<CR>
 noremap gr gT
 noremap <M-Esc> :NERDTreeFind<CR>
 noremap <C-f> :GFiles<CR>
-noremap <C-a> :Ag<CR>
+noremap <C-q> :Ag<CR>
 noremap tw :Buffers<CR>
 noremap tt :b#<CR>
 noremap tq :bd<CR>
