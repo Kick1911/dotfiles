@@ -93,7 +93,8 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <C-e> <C-u>
 " nnoremap à :belowright split term://zsh<CR>:resize 15<CR>A
 nnoremap <Esc> :set hlsearch!<CR>
-noremap gr gT
+" Close preview window
+noremap gr :pc<CR>
 noremap <M-Esc> :NERDTreeFind<CR>
 noremap <C-f> :GFiles<CR>
 noremap <C-q> :Ag<CR>
