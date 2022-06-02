@@ -108,7 +108,8 @@ noremap [h :GitGutterPrevHunk<CR>
 noremap tg :Git<CR>
 noremap td :Gdiffsplit!<CR>
 noremap tb :GBranches<CR>
-noremap tf :Git fetch<CR>
+noremap tf :Git! fetch<CR>
+noremap tp :Git! push<CR>
 
 " Disable movement in insert mode
 inoremap <up> <NOP>
