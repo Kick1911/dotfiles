@@ -93,11 +93,11 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <C-e> <C-u>
 " nnoremap à :belowright split term://zsh<CR>:resize 15<CR>A
 nnoremap <Esc> :set hlsearch!<CR>
-" Close preview window
-noremap gr :pc<CR>
 noremap <M-Esc> :NERDTreeFind<CR>
 noremap <C-f> :GFiles<CR>
 noremap <C-q> :Ag<CR>
+" Close preview window
+noremap tr :pc<CR>
 noremap tw :Buffers<CR>
 noremap tt :b#<CR>
 noremap tq :bd<CR>
@@ -109,8 +109,9 @@ noremap [h :GitGutterPrevHunk<CR>
 noremap tg :Git<CR>
 noremap td :Gdiffsplit!<CR>
 noremap tb :GBranches<CR>
-noremap tf :Git! fetch<CR>
-noremap tp :Git! push<CR>
+noremap te :Git! fetch<CR>
+noremap tf :Git! pull<CR>
+noremap tp :execute "Git! push origin @:refs/heads/". g:fugitive#head()<CR>
 
 " Disable movement in insert mode
 inoremap <up> <NOP>
