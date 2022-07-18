@@ -2,7 +2,7 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor HDMI2 -d I II III IV V VI VII VIII IX X
+bspc monitor DP1 -d I II III IV q w e r z x
 bspc monitor eDP1 -d I
 
 bspc config border_width         0
@@ -17,6 +17,8 @@ bspc rule -a krita desktop='^8' state=floating follow=on
 bspc rule -a mpv state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+
+xrandr --auto --output HDMI2 --primary --mode 1920x1080 --left-of eDP1
 
 polybar -c /home/kick/.config/polybar/config main &
 polybar -c /home/kick/.config/polybar/config laptop &

@@ -12,7 +12,16 @@ super + d
 
 # make sxhkd reload its configuration files:
 super + Escape
-	pkill -USR1 -x sxhkd
+	killall sxhkd; sxhkd
+
+super + comma
+    mpc prev
+
+super + period
+    mpc next
+
+super + space
+    mpc toggle
 
 #
 # bspwm hotkeys
@@ -81,8 +90,11 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+super + {_,shift + }{1-4}
+	bspc {desktop -f,node -d} '^{1-4}'
+
+super + {_,shift + }{q,w,e,r,z,x}
+	bspc {desktop -f,node -d} '{q,w,e,r,z,x}'
 
 #
 # preselect
