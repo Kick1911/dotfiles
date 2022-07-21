@@ -112,6 +112,7 @@ noremap tb :GBranches<CR>
 noremap te :Git! fetch<CR>
 noremap tf :Git! pull<CR>
 noremap tp :execute "Git! push origin @:refs/heads/". g:fugitive#head()<CR>
+noremap th :echo "https://github.com/sudonum/sudonum_api/blob/". FugitiveHead() ."/". expand("%") ."#L". line(".")<CR>
 
 " Disable movement in insert mode
 inoremap <up> <NOP>
