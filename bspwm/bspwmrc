@@ -27,4 +27,3 @@ xsetroot -cursor_name left_ptr
 xfce4-session &
 picom &
 unclutter &
-/scripts/52-background-image.sh
