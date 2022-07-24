@@ -20,7 +20,7 @@
 ; colours formatted like #aa[rrggbb]
 ;background = ${xrdb:color0:#222}
 background = #73B07289
-background-alt = #444
+background-alt = #73444444
 ;foreground = ${xrdb:color7:#222}
 foreground = #d1f3de
 foreground-alt = #571032
@@ -114,8 +114,8 @@ modules-left = bspwm
 modules-center = date
 modules-right = filesystem memory cpu wlan eth temperature battery
 
-tray-position = right
-tray-padding = 2
+;tray-position = right
+;tray-padding = 2
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
@@ -288,7 +288,7 @@ interface = wlan0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+;format-connected-underline = #9f78e1
 label-connected = %essid%
 
 format-disconnected =
@@ -373,14 +373,14 @@ full-at = 95
 low-at = 30
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+;format-charging-underline = #ffb52a
 
 format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+;format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colours.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+;format-full-underline = ${self.format-charging-underline}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
