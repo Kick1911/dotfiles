@@ -11,16 +11,16 @@ HOME_LINKS=.Xsession .tmux.conf .gitconfig etc/.asoundrc .zshrc
 all: fonts home-links configs vim-plug neovim packages \
 	${XRC}/52-background-image.sh # Wallpaper changer
 
-fonts: ${DOCUMENTS}/siji
-	git clone https://github.com/stark/siji ${DOCUMENTS}/siji \
-		&& cd ${DOCUMENTS}/siji \
-		&& ./install.sh
+${DOCUMENTS}/siji:
+	git clone https://github.com/stark/siji $@ \
+		&& cd $@ \
+		&& $@/install.sh
 
 ${HOME}/%:
-	ln -s ${PWD}/$@ ${HOME}/
+	ln -s ${PWD}/${notdir $@} ${HOME}/
 
 ${CONFIG_PATH}/%:
-	ln -s ${PWD}/$@ ${CONFIG}/
+	ln -s ${PWD}/${notdir $@} ${CONFIG}/
 
 home-links: ${HOME_FILES}
 	${MAKE} -c ${^:%=${HOME}/%}

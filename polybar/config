@@ -59,7 +59,7 @@ font-2 = Siji:pixelsize=10;1
 
 modules-left = bspwm
 modules-center = date
-modules-right = filesystem memory cpu wlan eth temperature battery
+modules-right = filesystem memory cpu wlan temperature battery
 
 ; The extra stuff that sometimes appears on the right
 ; tray-position = right
@@ -112,7 +112,7 @@ font-2 = Siji:pixelsize=10;1
 
 modules-left = bspwm
 modules-center = date
-modules-right = filesystem memory cpu wlan eth temperature battery
+modules-right = filesystem memory cpu wlan temperature battery
 
 ;tray-position = right
 ;tray-padding = 2
@@ -280,7 +280,7 @@ format-prefix = " "
 format-prefix-foreground = ${colours.foreground-alt}
 ; format-underline = #4bffdc
 format = <label>
-label = %used%
+label = %gb_used%
 
 [module/wlan]
 type = internal/network
