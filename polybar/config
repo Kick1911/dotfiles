@@ -268,7 +268,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+;format-prefix = " "
 format-prefix-foreground = ${colours.foreground-alt}
 ; format-underline = #f90000
 label = %percentage:2%%
@@ -276,7 +276,7 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+;format-prefix = " "
 format-prefix-foreground = ${colours.foreground-alt}
 ; format-underline = #4bffdc
 format = <label>
@@ -287,7 +287,7 @@ type = internal/network
 interface = wlan0
 interval = 3.0
 
-format-connected = <ramp-signal> <label-connected>
+format-connected = <label-connected>
 ;format-connected-underline = #9f78e1
 label-connected = %essid%
 
@@ -372,13 +372,13 @@ adapter = AC
 full-at = 95
 low-at = 30
 
-format-charging = <animation-charging> <label-charging>
+format-charging = <label-charging>
 ;format-charging-underline = #ffb52a
 
-format-discharging = <animation-discharging> <label-discharging>
+format-discharging = <label-discharging>
 ;format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+;format-full-prefix = " "
 format-full-prefix-foreground = ${colours.foreground-alt}
 ;format-full-underline = ${self.format-charging-underline}
 
@@ -404,7 +404,7 @@ type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
 
-format = <ramp> <label>
+format = <label>
 format-underline = #00f50a4d
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
