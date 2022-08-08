@@ -69,7 +69,7 @@ modules-right = filesystem memory cpu wlan temperature battery
 wm-restack = bspwm
 ;wm-restack = i3
 
-override-redirect = true
+;override-redirect = true
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
@@ -121,7 +121,7 @@ modules-right = filesystem memory cpu wlan temperature battery
 wm-restack = bspwm
 ;wm-restack = i3
 
-override-redirect = true
+;override-redirect = true
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
