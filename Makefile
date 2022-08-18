@@ -3,10 +3,11 @@ CONFIG_PATH=${HOME}/.config
 XRC=/etc/xinitrc.d
 
 NVIM_VERSION=0.7.2
-PACKAGES=silversearcher-ag
+PACKAGES=silversearcher-ag zsh
 CONFIGS=bspwm nvim polybar sxhkd
 HOME_LINKS=.Xsession .tmux.conf .gitconfig etc/.asoundrc .zshrc
 
+include makefile.d/*.mk
 
 all: fonts home-links configs vim-plug neovim packages \
 	${XRC}/52-background-image.sh # Wallpaper changer
@@ -37,6 +38,3 @@ vim-plug:
 
 /usr/local/bin/nvim:
 	curl https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim.appimage -o $@
-
-${XRC}/52-background-image.sh:
-	ln -s etc/xinitrc.d/52-background-image.sh ${XRC}
