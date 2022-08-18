@@ -12,6 +12,7 @@ supervisor: ${SUPER_CONF_PATHS}
 	${Q}service supervisor start
 
 ${SUPER_CONF_PATHS}: packages
+	${call print,${CYAN}LN ${notdir $@}}
 	${Q}ln -sf ${PWD}/${SUPER_LOCAL_PATH}/${notdir $@} ${SUPER_CONF}/
 
 .PHONY: supervisor
