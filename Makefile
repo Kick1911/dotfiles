@@ -5,7 +5,7 @@ DOCUMENTS=${HOME}/Documents
 CONFIG_PATH=${HOME}/.config
 XRC=/etc/xinitrc.d
 PWD := ${shell pwd}
-TARGETS=home-links configs neovim packages # fonts
+TARGETS=home-links configs neovim packages
 
 NVIM_VERSION=0.7.2
 PACKAGES=silversearcher-ag
@@ -17,11 +17,6 @@ HOME_LINK_PATHS=${HOME_LINKS:%=${HOME}/%}
 include makefile.d/*.mk
 
 all: ${TARGETS}
-
-${DOCUMENTS}/siji:
-	${Q}git clone https://github.com/stark/siji $@ \
-		&& cd $@ \
-		&& $@/install.sh
 
 ${HOME}/%:
 	${call print,${CYAN}LN ${notdir $@}}
@@ -43,4 +38,4 @@ packages:
 
 neovim: /usr/local/bin/nvim
 
-.PHONY: all neovim
+.PHONY: all neovim fonts
