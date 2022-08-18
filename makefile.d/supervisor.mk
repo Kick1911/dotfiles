@@ -1,3 +1,4 @@
+TARGETS += supervisor
 PACKAGES += supervisor
 SUPER_CONF=/etc/supervisor/conf.d
 SUPER_LOCAL_PATH=etc/supervisor
