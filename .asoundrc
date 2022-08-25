@@ -4,6 +4,12 @@ pcm.usb {
   device 0
 }
 
+pcm.optical {
+  type hw
+  card "Generic_1"
+  device 0
+}
+
 pcm.mic {
   type hw
   card 0
@@ -27,8 +33,8 @@ pcm.!default {
   }
 }
 
-defaults.pcm!card AUDIO
-defaults.ctl!card AUDIO
+#defaults.pcm!card AUDIO
+#defaults.ctl!card AUDIO
 
 #pcm.!default  {
 #type hw card 2

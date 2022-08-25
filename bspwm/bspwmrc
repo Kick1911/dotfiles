@@ -18,7 +18,7 @@ bspc rule -a mpv state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-xrandr --auto --output HDMI2 --primary --mode 1920x1080 --left-of eDP1
+# xrandr --auto --output HDMI2 --primary --mode 1920x1080 --left-of eDP1
 
 xsetroot -cursor_name left_ptr
 

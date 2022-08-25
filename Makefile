@@ -8,10 +8,10 @@ PWD := ${shell pwd}
 TARGETS=home-links configs neovim packages
 
 NVIM_VERSION=0.7.2
-PACKAGES=silversearcher-ag
+PACKAGES=silversearcher-ag unclutter picom tlp
 CONFIGS=bspwm nvim polybar sxhkd
 CONFIG_FILE_PATHS=${CONFIGS:%=${CONFIG_PATH}/%}
-HOME_LINKS=.Xsession .tmux.conf .gitconfig .asoundrc
+HOME_LINKS=.Xsession .tmux.conf .gitconfig .asoundrc .p10k.zsh
 HOME_LINK_PATHS=${HOME_LINKS:%=${HOME}/%}
 
 include makefile.d/*.mk
@@ -20,11 +20,11 @@ all: ${TARGETS}
 
 ${HOME}/%:
 	${call print,${CYAN}LN ${notdir $@}}
-	${Q}ln -sf ${PWD}/${notdir $@} ${HOME}/
+	${Q}ln -sf ${PWD}/${notdir $@} $@
 
 ${CONFIG_PATH}/%:
 	${call print,${CYAN}LN ${notdir $@}}
-	${Q}ln -sf ${PWD}/${notdir $@} ${CONFIG}/
+	${Q}ln -sf ${PWD}/${notdir $@} $@
 
 home-links: ${HOME_LINK_PATHS}
 
@@ -34,8 +34,11 @@ packages:
 	${Q}apt install ${PACKAGES}
 
 /usr/local/bin/nvim:
-	${Q}curl https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim.appimage -o $@
+	${Q}wget https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim.appimage -O $@
 
 neovim: /usr/local/bin/nvim
+	${Q}chmod 755 $<
+	${Q}unlink /usr/bin/vi
+	${Q}ln -sf $< /usr/bin/vi
 
 .PHONY: all neovim fonts
