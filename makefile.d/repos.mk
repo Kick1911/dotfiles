@@ -21,4 +21,9 @@ ${GITLAB_PATHS}:
 
 repos: ${GITLAB_PATHS} ${GITHUB_PATHS}
 
+define clone
+	${call print,${CYAN}GITHUB:CLONE ${BRIGHT_CYAN}${notdir ${2}}}
+	${Q}git clone ${1}/${notdir ${2}}.git ${2}
+endef
+
 .PHONY: repos
