@@ -8,11 +8,6 @@ GITLAB_REPOS = cpm json gaze kickc kick-display tcphttp unitest
 GITHUB_PATHS := ${GITHUB_REPOS:%=${REPO_DIR}/%}
 GITLAB_PATHS := ${GITLAB_REPOS:%=${REPO_DIR}/%}
 
-define clone
-	${call print,${CYAN}GITHUB:CLONE ${BRIGHT_CYAN}${notdir ${2}}}
-	${Q}git clone ${1}/${notdir ${2}}.git ${2}
-endef
-
 ${GITHUB_PATHS}:
 	${call clone,${GITHUB_URL},$@}
 
