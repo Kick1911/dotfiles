@@ -5,7 +5,7 @@ DOCUMENTS=${HOME}/Documents
 CONFIG_PATH=${HOME}/.config
 XRC=/etc/xinitrc.d
 PWD := ${shell pwd}
-TARGETS=home-links configs neovim packages
+TARGETS=home-links configs neovim packages /etc/X11/xorg.conf.d/20-amdgpu.conf
 
 NVIM_VERSION=0.7.2
 PACKAGES=silversearcher-ag unclutter picom tlp bspwm polybar nodejs npm \
@@ -21,11 +21,11 @@ all: ${TARGETS}
 
 ${HOME}/%:
 	${call print,${CYAN}LN ${notdir $@}}
-	${Q}ln -sf ${PWD}/${notdir $@} $@
+	${call as_user,ln -sf ${PWD}/${notdir $@} $@}
 
 ${CONFIG_PATH}/%:
 	${call print,${CYAN}LN ${notdir $@}}
-	${Q}ln -sf ${PWD}/${notdir $@} $@
+	${call as_user,ln -sf ${PWD}/${notdir $@} $@}
 
 /etc/X11/xorg.conf.d/20-amdgpu.conf:
 	${call print,${CYAN}LN ${notdir $@}}
