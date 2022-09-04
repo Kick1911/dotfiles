@@ -1,1 +1,2 @@
-HOME=/home/kick
+USER=kick
+HOME=/home/${USER}

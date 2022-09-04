@@ -1,3 +1,4 @@
+TARGETS += repos
 REPO_DIR := ${HOME}/Documents
 GITHUB_URL = git@github.com:Kick1911
 GITLAB_URL = git@gitlab.com:Kickness
@@ -18,7 +19,7 @@ repos: ${GITLAB_PATHS} ${GITHUB_PATHS}
 
 define clone
 	${call print,${CYAN}GITHUB:CLONE ${BRIGHT_CYAN}${notdir ${2}}}
-	${Q}git clone ${1}/${notdir ${2}}.git ${2}
+	${call as_user, git clone ${1}/${notdir ${2}}.git ${2}}
 endef
 
 .PHONY: repos

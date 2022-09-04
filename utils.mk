@@ -16,3 +16,7 @@ NC = \033[0m
 define print
 	@echo -e '  ${1}${NC}'
 endef
+
+define as_user
+	${Q}su ${USER} -c "${1}"
+endef
