@@ -36,7 +36,7 @@ home-links: ${HOME_LINK_PATHS}
 configs: ${CONFIG_FILE_PATHS}
 
 packages:
-	${Q}apt install ${PACKAGES}
+	${Q}apt install -y ${PACKAGES}
 
 /usr/local/bin/nvim:
 	${Q}wget https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim.appimage -O $@
