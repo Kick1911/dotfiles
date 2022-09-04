@@ -8,7 +8,8 @@ PWD := ${shell pwd}
 TARGETS=home-links configs neovim packages
 
 NVIM_VERSION=0.7.2
-PACKAGES=silversearcher-ag unclutter picom tlp
+PACKAGES=silversearcher-ag unclutter picom tlp bspwm polybar nodejs npm \
+		 suckless-tools
 CONFIGS=bspwm nvim polybar sxhkd
 CONFIG_FILE_PATHS=${CONFIGS:%=${CONFIG_PATH}/%}
 HOME_LINKS=.Xsession .tmux.conf .gitconfig .asoundrc .p10k.zsh
@@ -25,6 +26,10 @@ ${HOME}/%:
 ${CONFIG_PATH}/%:
 	${call print,${CYAN}LN ${notdir $@}}
 	${Q}ln -sf ${PWD}/${notdir $@} $@
+
+/etc/X11/xorg.conf.d/20-amdgpu.conf:
+	${call print,${CYAN}LN ${notdir $@}}
+	${Q}ln -sf ${PWD}/etc/xorg.conf.d/${notdir $@} $@
 
 home-links: ${HOME_LINK_PATHS}
 
