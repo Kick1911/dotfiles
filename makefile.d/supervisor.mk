@@ -6,7 +6,7 @@ SUPER_CONF_FILES=${shell ls ${SUPER_LOCAL_PATH}/*.conf}
 SUPER_CONF_PATHS=${SUPER_CONF_FILES:%=${SUPER_CONF}/%}
 
 supervisor: ${SUPER_CONF_PATHS}
-	${Q}# NOTE: restart does not work with SysV for supervisor
+	${Q}# NOTE restart does not work with SysV for supervisor
 	${call print,${BROWN}Supervisor stop}
 	${Q}service supervisor stop
 	${call print,${GREEN}Supervisor start}

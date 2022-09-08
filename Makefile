@@ -5,14 +5,14 @@ DOCUMENTS=${HOME}/Documents
 CONFIG_PATH=${HOME}/.config
 XRC=/etc/xinitrc.d
 PWD := ${shell pwd}
-TARGETS=home-links configs neovim packages /etc/X11/xorg.conf.d/20-amdgpu.conf
+TARGETS=home-links configs packages /etc/X11/xorg.conf.d/20-amdgpu.conf
 
 NVIM_VERSION=0.7.2
 PACKAGES=silversearcher-ag unclutter picom tlp bspwm polybar nodejs npm \
 		 suckless-tools
 CONFIGS=bspwm nvim polybar sxhkd
 CONFIG_FILE_PATHS=${CONFIGS:%=${CONFIG_PATH}/%}
-HOME_LINKS=.Xsession .tmux.conf .gitconfig .asoundrc .p10k.zsh
+HOME_LINKS=.Xsession .tmux.conf .gitconfig .asoundrc .p10k.zsh .gitignore_global
 HOME_LINK_PATHS=${HOME_LINKS:%=${HOME}/%}
 
 include makefile.d/*.mk
