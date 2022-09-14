@@ -123,3 +123,4 @@ inoremap <right> <NOP>
 " Visual mode search
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
+silent! exec "source " . argv(0) . "/.vimrc"
