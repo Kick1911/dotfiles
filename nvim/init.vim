@@ -79,6 +79,7 @@ hi LineNr ctermfg=blue
 hi Search cterm=NONE ctermfg=red ctermbg=lightgreen
 hi CocFloating ctermfg=red ctermbg=black
 hi ColorColumn ctermbg=131
+hi clear Pmenu
 hi clear TabLineFill
 hi clear SignColumn
 hi clear GitGutterAdd
