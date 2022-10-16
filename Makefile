@@ -7,7 +7,7 @@ XRC=/etc/xinitrc.d
 PWD := ${shell pwd}
 TARGETS=home-links configs packages /etc/X11/xorg.conf.d/20-amdgpu.conf
 
-NVIM_VERSION=0.8.0
+NVIM_VERSION=0.7.2
 PACKAGES=silversearcher-ag unclutter picom tlp bspwm polybar nodejs npm \
 		 suckless-tools
 CONFIGS=bspwm nvim polybar sxhkd
