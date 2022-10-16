@@ -69,6 +69,7 @@ set listchars=tab:>-,trail:~,extends:>,precedes:<
 set list
 set colorcolumn=79
 setlocal foldmethod=indent
+set mouse=
 
 " https://github.com/rafi/awesome-vim-colorschemes
 " colorscheme dogrun
