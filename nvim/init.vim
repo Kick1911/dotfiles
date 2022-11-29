@@ -113,7 +113,7 @@ noremap tg :Git<CR>
 noremap td :Gdiffsplit!<CR>
 noremap tb :GBranches<CR>
 noremap te :Git! fetch<CR>
-noremap tf :Git! pull<CR>
+noremap tf :execute "Git! pull " . FugitiveRemote().remote_name . " " . FugitiveHead()<CR>
 noremap tp :execute "Git! push origin @:refs/heads/". FugitiveHead()<CR>
 noremap th :echo "https://github.com/". substitute(g:fugitive#Remote().path, ".git", "", "") ."/blob/". FugitiveHead() ."/". expand("%") ."#L". line(".")<CR>
 
