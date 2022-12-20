@@ -1,39 +1,7 @@
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
-
-" Make sure you use single quotes
-
-" ---
-Plug 'Kick1911/nerdtree'  " NERD Tree
-" Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status in Nerd tree
-Plug 'vim-airline/vim-airline' " UI
-Plug 'vim-airline/vim-airline-themes' " Themes
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'stsewd/fzf-checkout.vim'
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " Fast Python linter
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " coc.nvim C syntax
-" Plug 'deoplete-plugins/deoplete-clang'
-" Plug 'dense-analysis/ale'
-" Plug 'sheerun/vim-polyglot'
-" Plug 'rking/ag.vim' " Text search
-" Plug 'Chun-Yang/vim-action-ag' " Ag compliment
-" Plug 'rafi/awesome-vim-colorschemes'
-
-" Code {{{
-" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-" }}}
-
-" GIT {{{
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-" }}}
-
-" Initialize plugin system
-call plug#end()
+lua require("imports")
 
 let g:lightline = {
       \ 'active': {
@@ -91,37 +59,8 @@ hi clear GitGutterDelete
 "  set termguicolors
 " endif
 
-" Shortcuts
-tnoremap <Esc> <C-\><C-n>
-nnoremap <C-e> <C-u>
 " nnoremap à :belowright split term://zsh<CR>:resize 15<CR>A
-nnoremap <Esc> :set hlsearch!<CR>
-noremap <M-Esc> :NERDTreeFind<CR>
-noremap <C-f> :GFiles<CR>
-noremap <C-q> :Ag<CR>
-" Close preview window
-noremap tr :pc<CR>
-noremap tw :Buffers<CR>
-noremap tt :b#<CR>
-noremap tq :bd<CR>
-noremap tw :Buffers<CR>
-noremap ts :GitGutterStageHunk<CR>
-noremap tx :GitGutterUndoHunk<CR>
-noremap ]h :GitGutterNextHunk<CR>
-noremap [h :GitGutterPrevHunk<CR>
-noremap tg :Git<CR>
-noremap td :Gdiffsplit!<CR>
-noremap tb :GBranches<CR>
-noremap te :Git! fetch<CR>
-noremap tf :execute "Git! pull " . FugitiveRemote().remote_name . " " . FugitiveHead()<CR>
-noremap tp :execute "Git! push origin @:refs/heads/". FugitiveHead()<CR>
-noremap th :echo "https://github.com/". substitute(g:fugitive#Remote().path, ".git", "", "") ."/blob/". FugitiveHead() ."/". expand("%") ."#L". line(".")<CR>
 
-" Disable movement in insert mode
-inoremap <up> <NOP>
-inoremap <down> <NOP>
-inoremap <left> <NOP>
-inoremap <right> <NOP>
 
 " Visual mode search
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
