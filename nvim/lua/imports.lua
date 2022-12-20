@@ -28,6 +28,17 @@ vim.g.workspace_autosave_always = 1
 vim.g.gitgutter_highlight_linenrs = 0
 vim.g.fzf_checkout_git_options = '--sort=-committerdate'
 vim.g.haskell_classic_highlighting = 1
+--[[
+vim.g.lightline = {
+  active = {
+    left = { { 'mode', 'paste' },
+             { 'gitbranch', 'readonly', 'filename', 'modified' } }
+  },
+  component_function = {
+    gitbranch = 'gitbranch#name'
+  },
+}
+]]--
 
 function map(mode, lhs, rhs)
     vim.api.nvim_set_keymap(mode, lhs, rhs, { noremap = true, silent = true })
@@ -66,3 +77,39 @@ map("n", "tb", ":GBranches<CR>")
 
 -- Visual mode search
 map("v", "//", ":y/\\V<C-R>=escape(@\",'/\\')<CR><CR>")
+
+-- Commands
+vim.cmd [[silent! exec "source " . argv(0) . "/.vimrc"]]
+
+-- Default colour of line number
+vim.cmd [[
+hi LineNr ctermfg=blue
+hi Search cterm=NONE ctermfg=red ctermbg=lightgreen
+hi CocFloating ctermfg=red ctermbg=black
+hi ColorColumn ctermbg=131
+hi clear Pmenu
+hi clear TabLineFill
+hi clear SignColumn
+hi clear GitGutterAdd
+hi clear GitGutterChange
+hi clear GitGutterDelete
+]]
+
+-- Vim config
+vim.cmd [[
+set cpoptions+=u " Fix undo
+set cpoptions+=$ " Fix editing not really
+set cpoptions+=v " Fix backspacing
+set hidden " Can change buffers without writing file
+set number
+set tabstop=4 shiftwidth=4 expandtab
+set backspace=
+set nosmartindent
+set nocindent
+packadd termdebug
+set listchars=tab:>-,trail:~,extends:>,precedes:<
+set list
+set colorcolumn=79
+setlocal foldmethod=indent
+set mouse=
+]]
