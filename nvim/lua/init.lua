@@ -1,3 +1,5 @@
+require("number_line")
+
 local Plug = vim.fn['plug#']
 
 vim.call('plug#begin', '~/.config/nvim/plugged')
@@ -51,6 +53,11 @@ map("i", "<up>", "<NOP>")
 map("i", "<down>", "<NOP>")
 map("i", "<left>", "<NOP>")
 map("i", "<right>", "<NOP>")
+
+map("n", "<up>", "<NOP>")
+map("n", "<down>", "<NOP>")
+map("n", "<left>", "<NOP>")
+map("n", "<right>", "<NOP>")
 
 map("n", "<C-e>", "<C-u>")
 map("t", "<Esc>", "<C-\\><C-n>")
