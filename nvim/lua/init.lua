@@ -73,7 +73,7 @@ map("n", "tr", ":pc<CR>") -- Close preview window
 map("n", "tw", ":Buffers<CR>")
 map("n", "tt", ":b#<CR>")
 map("n", "tq", ":bd<CR>")
-map("n", "tx", ":GitGutterStageHunk<CR>")
+map("n", "ts", ":GitGutterStageHunk<CR>")
 map("n", "tx", ":GitGutterUndoHunk<CR>")
 map("n", "]h", ":GitGutterNextHunk<CR>")
 map("n", "[h", ":GitGutterPrevHunk<CR>")
