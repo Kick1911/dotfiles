@@ -82,6 +82,40 @@ map("n", "tg", ":Git<CR>")
 map("n", "td", ":Gdiffsplit!<CR>")
 map("n", "tb", ":GBranches<CR>")
 
+function open_window()
+    -- https://neovim.io/doc/user/api.html#nvim_open_win()
+    local window_id = 0
+    local r, c = unpack(vim.api.nvim_win_get_cursor(window_id))
+    local total = vim.api.nvim_buf_line_count(window_id)
+    local height = vim.api.nvim_win_get_height(window_id)
+    local width = vim.api.nvim_win_get_width(window_id)
+
+    local buf = vim.api.nvim_create_buf(false, true)
+
+    vim.api.nvim_buf_set_lines(buf, 0, -1, true, {"test", "text"})
+
+    new_width = math.floor(width * 0.2)
+    new_height = math.floor(height * 0.3)
+    local opts = {
+        relative = 'win',
+        width = new_width,
+        height = new_height,
+        col = width - 5,
+        row = 1,
+        anchor = 'NE',
+        style = 'minimal',
+        border = 'rounded'
+    }
+    local win = vim.api.nvim_open_win(
+        buf,
+        false, -- Do not focus window
+        opts
+    )
+    -- optional: change highlight, otherwise Pmenu is used
+    vim.api.nvim_win_set_option(win, 'winhl', 'Normal:MyHighlight')
+end
+vim.keymap.set('n', 'ty', open_window)
+
 -- Visual mode search
 map("v", "//", ":y/\\V<C-R>=escape(@\",'/\\')<CR><CR>")
 
