@@ -38,8 +38,11 @@ configs: ${CONFIG_FILE_PATHS}
 packages:
 	${Q}apt install -y ${PACKAGES}
 
-/usr/local/bin/nvim:
+/usr/local/bin/nvim: nvim/lua/*.so
 	${Q}wget https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim.appimage -O $@
+
+nvim/lua/*.so:
+	${Q}${MAKE} -C nvim/lua/c
 
 neovim: /usr/local/bin/nvim
 	${Q}chmod 755 $<

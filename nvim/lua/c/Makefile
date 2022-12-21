@@ -6,3 +6,5 @@ all: ratio.so
 
 ratio.so: ratio.c
 	gcc ${CFLAGS} ${INCLUDE} ${LIBS} -o ../$@ $<
+
+.PHONY: all
