@@ -82,29 +82,26 @@ map("n", "tg", ":Git<CR>")
 map("n", "td", ":Gdiffsplit!<CR>")
 map("n", "tb", ":GBranches<CR>")
 
-function open_window()
+function open_window(window_id, x, y, height_per, width_per, zindex)
     -- https://neovim.io/doc/user/api.html#nvim_open_win()
-    local window_id = 0
-    local r, c = unpack(vim.api.nvim_win_get_cursor(window_id))
-    local total = vim.api.nvim_buf_line_count(window_id)
     local height = vim.api.nvim_win_get_height(window_id)
     local width = vim.api.nvim_win_get_width(window_id)
 
     local buf = vim.api.nvim_create_buf(false, true)
+    vim.api.nvim_buf_set_lines(buf, 0, -1, true, {})
 
-    vim.api.nvim_buf_set_lines(buf, 0, -1, true, {"test", "text"})
-
-    new_width = math.floor(width * 0.2)
-    new_height = math.floor(height * 0.3)
+    new_width = math.floor(width * width_per)
+    new_height = math.floor(height * height_per)
     local opts = {
         relative = 'win',
         width = new_width,
         height = new_height,
-        col = width - 5,
-        row = 1,
+        col = y,
+        row = x,
         anchor = 'NE',
         style = 'minimal',
-        border = 'rounded'
+        border = 'rounded',
+        zindex = zindex
     }
     local win = vim.api.nvim_open_win(
         buf,
@@ -113,8 +110,35 @@ function open_window()
     )
     -- optional: change highlight, otherwise Pmenu is used
     vim.api.nvim_win_set_option(win, 'winhl', 'Normal:MyHighlight')
+    return win
 end
-vim.keymap.set('n', 'ty', open_window)
+
+moving_window = 0
+
+function updatePreviewWindow(window_id)
+    local r, _ = unpack(vim.api.nvim_win_get_cursor(0))
+    local _, c = unpack(vim.api.nvim_win_get_position(window_id))
+    if moving_window ~= 0 then
+        vim.api.nvim_win_close(moving_window, false)
+    end
+    return open_window(window_id, r + 1, c - 1, 0.3, 0.8, 101)
+end
+
+local r, c = unpack(vim.api.nvim_win_get_position(0))
+local width = vim.api.nvim_win_get_width(0)
+main_win = open_window(0, r + 1, c + width - 5, 0.35, 0.05, 100)
+
+vim.api.nvim_create_autocmd(
+    "CursorMoved",
+    {
+        pattern = "*",
+        callback = function()
+            moving_window = updatePreviewWindow(main_win, moving_window)
+        end,
+        once = false,
+        group = vim.api.nvim_create_augroup("PreviewWindow", { clear = true })
+    }
+)
 
 -- Visual mode search
 map("v", "//", ":y/\\V<C-R>=escape(@\",'/\\')<CR><CR>")
