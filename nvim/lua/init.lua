@@ -82,7 +82,7 @@ map("n", "tg", ":Git<CR>")
 map("n", "td", ":Gdiffsplit!<CR>")
 map("n", "tb", ":GBranches<CR>")
 
-function open_window(window_id, x, y, height_per, width_per, zindex)
+function open_window(window_id, x, y, height_per, width_per, anchor, zindex)
     -- https://neovim.io/doc/user/api.html#nvim_open_win()
     local height = vim.api.nvim_win_get_height(window_id)
     local width = vim.api.nvim_win_get_width(window_id)
@@ -98,7 +98,7 @@ function open_window(window_id, x, y, height_per, width_per, zindex)
         height = new_height,
         col = y,
         row = x,
-        anchor = 'NE',
+        anchor = anchor,
         style = 'minimal',
         border = 'rounded',
         zindex = zindex
@@ -123,13 +123,17 @@ function updatePreviewWindow(window_id, moving_window)
         vim.api.nvim_win_close(moving_window, false)
     end
 
-    print(r, main_win_row_count, preview_win_height)
+    -- FIXME: this is a hack to force correct behaviour
+    if r == main_win_row_count then
+        r = r - 1
+    end
     return open_window(
         window_id,
-        (r/main_win_row_count) * preview_win_height,
-        c - 1,
+        ((r/main_win_row_count) * preview_win_height) + 1,
+        c + 1,
         0.3,
         0.8,
+        'NW',
         101
     )
 end
@@ -138,7 +142,7 @@ moving_window = 0
 
 local r, c = unpack(vim.api.nvim_win_get_position(0))
 local width = vim.api.nvim_win_get_width(0)
-preview_win = open_window(0, r + 1, c + width - 5, 0.35, 0.05, 100)
+preview_win = open_window(0, r + 1, c + width - 5, 0.35, 0.05, 'NE', 100)
 
 vim.api.nvim_create_autocmd(
     "CursorMoved",
