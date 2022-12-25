@@ -16,6 +16,7 @@ function numberBgColour()
         return
     end
 
+    -- Colour ref: https://vimdoc.sourceforge.net/htmldoc/syntax.html#:highlight
     local funcs = {
         [0.2] = function() vim.cmd [[ hi CursorLineNr ctermfg=green ]] end,
         [0.4] = function() vim.cmd [[ hi CursorLineNr ctermfg=yellow ]] end,
