@@ -113,27 +113,39 @@ function open_window(window_id, x, y, height_per, width_per, zindex)
     return win
 end
 
-moving_window = 0
-
-function updatePreviewWindow(window_id)
+function updatePreviewWindow(window_id, moving_window)
     local r, _ = unpack(vim.api.nvim_win_get_cursor(0))
+    local main_win_row_count = vim.api.nvim_buf_line_count(0)
+    local preview_win_height = vim.api.nvim_win_get_height(window_id)
     local _, c = unpack(vim.api.nvim_win_get_position(window_id))
+
     if moving_window ~= 0 then
         vim.api.nvim_win_close(moving_window, false)
     end
-    return open_window(window_id, r + 1, c - 1, 0.3, 0.8, 101)
+
+    print(r, main_win_row_count, preview_win_height)
+    return open_window(
+        window_id,
+        (r/main_win_row_count) * preview_win_height,
+        c - 1,
+        0.3,
+        0.8,
+        101
+    )
 end
+
+moving_window = 0
 
 local r, c = unpack(vim.api.nvim_win_get_position(0))
 local width = vim.api.nvim_win_get_width(0)
-main_win = open_window(0, r + 1, c + width - 5, 0.35, 0.05, 100)
+preview_win = open_window(0, r + 1, c + width - 5, 0.35, 0.05, 100)
 
 vim.api.nvim_create_autocmd(
     "CursorMoved",
     {
         pattern = "*",
         callback = function()
-            moving_window = updatePreviewWindow(main_win, moving_window)
+            moving_window = updatePreviewWindow(preview_win, moving_window)
         end,
         once = false,
         group = vim.api.nvim_create_augroup("PreviewWindow", { clear = true })
