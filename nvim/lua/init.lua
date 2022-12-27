@@ -1,4 +1,5 @@
 require("number_line")
+require("preview_window")
 
 local Plug = vim.fn['plug#']
 
