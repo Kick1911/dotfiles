@@ -114,10 +114,12 @@ function open_window(window_id, x, y, height_per, width_per, anchor, zindex)
 end
 
 function updatePreviewWindow(window_id, moving_window)
+    local height_per = 0.3
     local r, _ = unpack(vim.api.nvim_win_get_cursor(0))
     local main_win_row_count = vim.api.nvim_buf_line_count(0)
     local preview_win_height = vim.api.nvim_win_get_height(window_id)
     local _, c = unpack(vim.api.nvim_win_get_position(window_id))
+    local new_height = math.floor(preview_win_height * height_per)
 
     if moving_window ~= 0 then
         vim.api.nvim_win_close(moving_window, false)
@@ -127,11 +129,12 @@ function updatePreviewWindow(window_id, moving_window)
     if r == main_win_row_count then
         r = r - 1
     end
+
     return open_window(
         window_id,
-        ((r/main_win_row_count) * preview_win_height) + 1,
+        ( ((r-1)/main_win_row_count) * (preview_win_height - new_height)) + 1,
         c + 1,
-        0.3,
+        height_per,
         0.8,
         'NW',
         101
