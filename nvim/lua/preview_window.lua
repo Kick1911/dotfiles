@@ -63,7 +63,7 @@ end
 
 local preview_win = open_window(0, r + 1, c + width - 5, 0.35, 0.05, 'NE', 100)
 vim.api.nvim_create_autocmd(
-    {"WinEnter", "WinLeave", "CursorMoved"},
+    {"CursorMoved"}, -- https://vimdoc.sourceforge.net/htmldoc/autocmd.html
     {
         pattern = "*",
         callback = function()
