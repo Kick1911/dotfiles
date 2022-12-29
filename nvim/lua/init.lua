@@ -12,6 +12,7 @@ Plug('junegunn/fzf', {dir = '~/.fzf', ['do'] = './install --all'})
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
 Plug('neoclide/coc.nvim', {branch = 'release'}) -- coc.nvim C syntax
+Plug('Shougo/deoplete.nvim', {['do'] = ':UpdateRemotePlugins'})
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -59,6 +60,11 @@ map("n", "<up>", "<NOP>")
 map("n", "<down>", "<NOP>")
 map("n", "<left>", "<NOP>")
 map("n", "<right>", "<NOP>")
+
+map("v", "<up>", "<NOP>")
+map("v", "<down>", "<NOP>")
+map("v", "<left>", "<NOP>")
+map("v", "<right>", "<NOP>")
 
 map("n", "<C-e>", "<C-u>")
 map("t", "<Esc>", "<C-\\><C-n>")
