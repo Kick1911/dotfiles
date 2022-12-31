@@ -16,8 +16,12 @@ Plug('Shougo/deoplete.nvim', {['do'] = ':UpdateRemotePlugins'})
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'neovim/nvim-lspconfig'
 
 vim.call('plug#end')
+
+require'lspconfig'.clangd.setup{}
+-- require'lspconfig'.pyright.setup{}
 
 vim.cmd [[
 let g:deoplete#enable_at_startup = 1
