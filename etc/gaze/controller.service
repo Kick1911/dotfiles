@@ -1,0 +1,3 @@
+name = controller
+command = /home/kick/Downloads/AntiMicroX-x86_64.AppImage --hidden
+environ = DISPLAY=:0,HOME=/home/kick

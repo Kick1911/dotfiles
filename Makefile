@@ -5,7 +5,7 @@ DOCUMENTS=${HOME}/Documents
 CONFIG_PATH=${HOME}/.config
 XRC=/etc/xinitrc.d
 PWD := ${shell pwd}
-TARGETS=home-links configs packages /etc/X11/xorg.conf.d/20-amdgpu.conf
+TARGETS=home-links configs packages /etc/X11/xorg.conf.d/20-amdgpu.conf /etc/gaze
 
 NVIM_VERSION=0.8.1
 PACKAGES=silversearcher-ag unclutter picom tlp bspwm polybar nodejs npm \
@@ -30,6 +30,10 @@ ${CONFIG_PATH}/%:
 /etc/X11/xorg.conf.d/20-amdgpu.conf:
 	${call print,${CYAN}LN ${notdir $@}}
 	${Q}ln -sf ${PWD}/etc/xorg.conf.d/${notdir $@} $@
+
+/etc/gaze:
+	${call print,${CYAN}LN $@}
+	${Q}ln -sf ${PWD}$@ $@
 
 home-links: ${HOME_LINK_PATHS}
 
