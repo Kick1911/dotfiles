@@ -96,9 +96,6 @@ map("n", "tb", ":GBranches<CR>")
 -- Visual mode search
 map("v", "//", ":y/\\V<C-R>=escape(@\",'/\\')<CR><CR>")
 
--- Commands
-vim.cmd [[silent! exec "source " . argv(0) . "/.vimrc"]]
-
 -- Default colour of line number
 vim.cmd [[
 hi LineNr ctermfg=blue
@@ -131,3 +128,6 @@ set colorcolumn=79
 setlocal foldmethod=indent
 set mouse=
 ]]
+
+-- Commands
+vim.cmd [[silent! exec "source " . argv(0) . "/.vimrc"]]
