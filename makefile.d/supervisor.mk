@@ -1,5 +1,5 @@
-TARGETS += supervisor
-PACKAGES += supervisor
+# TARGETS += supervisor
+# PACKAGES += supervisor
 SUPER_CONF=/etc/supervisor/conf.d
 SUPER_LOCAL_PATH=etc/supervisor
 SUPER_CONF_FILES=${shell ls ${SUPER_LOCAL_PATH}/*.conf}

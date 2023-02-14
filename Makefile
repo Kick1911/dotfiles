@@ -9,7 +9,7 @@ TARGETS=home-links configs packages /etc/X11/xorg.conf.d/20-amdgpu.conf /etc/gaz
 
 NVIM_VERSION=0.8.1
 PACKAGES=silversearcher-ag unclutter picom tlp bspwm polybar nodejs npm \
-		 suckless-tools clangd
+		 suckless-tools clangd liblua5.1-0-dev gcc
 CONFIGS=bspwm nvim polybar sxhkd
 CONFIG_FILE_PATHS=${CONFIGS:%=${CONFIG_PATH}/%}
 HOME_LINKS=.Xsession .tmux.conf .gitconfig .asoundrc .p10k.zsh .gitignore_global
