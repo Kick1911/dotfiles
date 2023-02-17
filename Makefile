@@ -8,7 +8,7 @@ PWD := ${shell pwd}
 TARGETS=home-links configs packages /etc/X11/xorg.conf.d/20-amdgpu.conf
 
 NVIM_VERSION=0.8.1
-PACKAGES=silversearcher-ag unclutter picom tlp bspwm polybar  \
+PACKAGES=unclutter picom tlp bspwm polybar  \
 		 suckless-tools clangd gcc
 CONFIGS=bspwm nvim polybar sxhkd
 CONFIG_FILE_PATHS=${CONFIGS:%=${CONFIG_PATH}/%}
