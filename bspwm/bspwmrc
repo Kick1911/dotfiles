@@ -22,9 +22,10 @@ bspc rule -a firefox desktop='^1'
 bspc rule -a Google-chrome desktop='^3'
 bspc rule -a Kodi desktop='^5'
 
-# xrandr --auto --output HDMI2 --primary --mode 1920x1080 --left-of eDP1
-
 xsetroot -cursor_name left_ptr
+# Disable screen sleep
+xset -dpms
+xset s off
 
 xfce4-session &
 picom -b
