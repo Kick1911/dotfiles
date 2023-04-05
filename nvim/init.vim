@@ -13,12 +13,12 @@ Plug 'vim-airline/vim-airline-themes' " Themes
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " Fast Python linter
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " coc.nvim C syntax
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " Fast Python linter
+" Plug 'neoclide/coc.nvim', {'branch': 'release'} " coc.nvim C syntax
 " Plug 'deoplete-plugins/deoplete-clang'
 " Plug 'dense-analysis/ale'
-" Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 " Plug 'rking/ag.vim' " Text search
 " Plug 'Chun-Yang/vim-action-ag' " Ag compliment
 " Plug 'rafi/awesome-vim-colorschemes'
@@ -54,6 +54,7 @@ let g:airline_right_alt_sep = ''
 let g:workspace_autosave_always = 1
 let g:gitgutter_highlight_linenrs = 0
 let g:fzf_checkout_git_options = '--sort=-committerdate'
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 " Vim config
 set cpoptions+=u " Fix undo
@@ -69,8 +70,11 @@ packadd termdebug
 set listchars=tab:>-,trail:~,extends:>,precedes:<
 set list
 set colorcolumn=79
+set tw=79
 setlocal foldmethod=indent
 set mouse=
+" Default : "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
+set guicursor=v-c-sm:block,n-i-ci-ve:ver25,r-cr-o:hor20,a:blinkon100
 
 " https://github.com/rafi/awesome-vim-colorschemes
 " colorscheme dogrun
