@@ -13,6 +13,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
 Plug('neoclide/coc.nvim', {branch = 'release'}) -- coc.nvim C syntax
 Plug('Shougo/deoplete.nvim', {['do'] = ':UpdateRemotePlugins'})
+Plug('numirias/semshi', {['do'] = ':UpdateRemotePlugins'}) -- Fast Python linter
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
