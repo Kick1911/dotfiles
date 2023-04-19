@@ -105,35 +105,35 @@ hi clear GitGutterDelete
 "  :vmap  :vnoremap  :vunmap  :vmapclear -      yes             -
 "  :omap  :onoremap  :ounmap  :omapclear -      -               yes
 
-map w <cmd>lua require('spider').motion('w')<CR>
-map e <cmd>lua require('spider').motion('e')<CR>
-map b <cmd>lua require('spider').motion('b')<CR>
-map ge <cmd>lua require('spider').motion('ge')<CR>
+nmap w <cmd>lua require('spider').motion('w')<CR>
+nmap e <cmd>lua require('spider').motion('e')<CR>
+nmap b <cmd>lua require('spider').motion('b')<CR>
+nmap ge <cmd>lua require('spider').motion('ge')<CR>
 
 tnoremap <Esc> <C-\><C-n>
 nnoremap <C-e> <C-u>
 " nnoremap à :belowright split term://zsh<CR>:resize 15<CR>A
-nnoremap <Esc> :set hlsearch!<CR>
-noremap <M-Esc> :NERDTreeFind<CR>
-noremap <C-f> :GFiles<CR>
-noremap <C-q> :Ag<CR>
+nnoremap <Esc> <cmd>set hlsearch!<CR>
+noremap <M-Esc> <cmd>NERDTreeFind<CR>
+noremap <C-f> <cmd>GFiles<CR>
+noremap <C-q> <cmd>Ag<CR>
 " Close preview window
-noremap tr :pc<CR>
-noremap tw :Buffers<CR>
-noremap tt :b#<CR>
-noremap tq :bd<CR>
-noremap tw :Buffers<CR>
-noremap ts :GitGutterStageHunk<CR>
-noremap tx :GitGutterUndoHunk<CR>
-noremap ]h :GitGutterNextHunk<CR>
-noremap [h :GitGutterPrevHunk<CR>
-noremap tg :Git<CR>
-noremap td :Gdiffsplit!<CR>
-noremap tb :GBranches<CR>
-noremap te :Git! fetch<CR>
-noremap tf :execute "Git! pull " . FugitiveRemote().remote_name . " " . FugitiveHead()<CR>
-noremap tp :execute "Git! push origin @:refs/heads/". FugitiveHead()<CR>
-noremap th :echo "https://github.com/". substitute(g:fugitive#Remote().path, ".git", "", "") ."/blob/". FugitiveHead() ."/". expand("%") ."#L". line(".")<CR>
+noremap tr <cmd>pc<CR>
+noremap tw <cmd>Buffers<CR>
+noremap tt <cmd>b#<CR>
+noremap tq <cmd>bd<CR>
+noremap tw <cmd>Buffers<CR>
+noremap ts <cmd>GitGutterStageHunk<CR>
+noremap tx <cmd>GitGutterUndoHunk<CR>
+noremap ]h <cmd>GitGutterNextHunk<CR>
+noremap [h <cmd>GitGutterPrevHunk<CR>
+noremap tg <cmd>Git<CR>
+noremap td <cmd>Gdiffsplit!<CR>
+noremap tb <cmd>GBranches<CR>
+noremap te <cmd>Git! fetch<CR>
+noremap tf <cmd>execute "Git! pull " . FugitiveRemote().remote_name . " " . FugitiveHead()<CR>
+noremap tp <cmd>execute "Git! push origin @:refs/heads/". FugitiveHead()<CR>
+noremap th <cmd>echo "https://github.com/". substitute(g:fugitive#Remote().path, ".git", "", "") ."/blob/". FugitiveHead() ."/". expand("%") ."#L". line(".")<CR>
 
 " Disable movement in insert mode
 inoremap <up> <NOP>
