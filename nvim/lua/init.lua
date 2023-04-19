@@ -1,4 +1,5 @@
 require("number_line")
+require("compatible-pack")
 require("preview_window")
 
 local Plug = vim.fn['plug#']
@@ -118,7 +119,6 @@ hi clear GitGutterDelete
 
 -- Vim config
 vim.cmd [[
-set cpoptions+=u " Fix undo
 set cpoptions+=$ " Fix editing not really
 set cpoptions+=v " Fix backspacing
 set hidden " Can change buffers without writing file
