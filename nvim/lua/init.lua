@@ -14,6 +14,7 @@ Plug 'stsewd/fzf-checkout.vim'
 Plug('neoclide/coc.nvim', {branch = 'release'}) -- coc.nvim C syntax
 Plug('Shougo/deoplete.nvim', {['do'] = ':UpdateRemotePlugins'})
 Plug('numirias/semshi', {['do'] = ':UpdateRemotePlugins'}) -- Fast Python linter
+Plug 'chrisgrieser/nvim-spider'
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -54,6 +55,10 @@ function map(mode, lhs, rhs)
 end
 
 -- Shortcuts
+vim.keymap.set({"n"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+vim.keymap.set({"n"}, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+vim.keymap.set({"n"}, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+vim.keymap.set({"n"}, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
 
 -- Disable movement in insert mode
 map("i", "<up>", "<NOP>")
@@ -73,26 +78,26 @@ map("v", "<right>", "<NOP>")
 
 map("n", "<C-e>", "<C-u>")
 map("t", "<Esc>", "<C-\\><C-n>")
-map("n", "<Esc>", ":set hlsearch!<CR>")
-map("n", "<M-Esc>", ":NERDTreeFind<CR>")
-map("n", "<C-f>", ":GFiles<CR>")
-map("n", "<C-q>", ":Ag<CR>")
+map("n", "<Esc>", "<cmd>set hlsearch!<CR>")
+map("n", "<M-Esc>", "<cmd>NERDTreeFind<CR>")
+map("n", "<C-f>", "<cmd>GFiles<CR>")
+map("n", "<C-q>", "<cmd>Ag<CR>")
 
-map("n", "tf", ':execute "Git! pull " . FugitiveRemote().remote_name . " " . FugitiveHead()<CR>')
-map("n", "tp", ':execute "Git! push origin @:refs/heads/". FugitiveHead()<CR>')
-map("n", "th", ':echo "https://github.com/". substitute(g:fugitive#Remote().path, ".git", "", "") ."/blob/". FugitiveHead() ."/". expand("%") ."#L". line(".")<CR>')
-map("n", "tr", ":pc<CR>") -- Close preview window
-map("n", "tw", ":Buffers<CR>")
-map("n", "tt", ":b#<CR>")
-map("n", "tq", ":bd<CR>")
-map("n", "ts", ":GitGutterStageHunk<CR>")
-map("n", "tx", ":GitGutterUndoHunk<CR>")
-map("n", "]h", ":GitGutterNextHunk<CR>")
-map("n", "[h", ":GitGutterPrevHunk<CR>")
-map("n", "te", ":Git! fetch<CR>")
-map("n", "tg", ":Git<CR>")
-map("n", "td", ":Gdiffsplit!<CR>")
-map("n", "tb", ":GBranches<CR>")
+map("n", "tf", '<cmd>execute "Git! pull " . FugitiveRemote().remote_name . " " . FugitiveHead()<CR>')
+map("n", "tp", '<cmd>execute "Git! push origin @:refs/heads/". FugitiveHead()<CR>')
+map("n", "th", '<cmd>echo "https://github.com/". substitute(g:fugitive#Remote().path, ".git", "", "") ."/blob/". FugitiveHead() ."/". expand("%") ."#L". line(".")<CR>')
+map("n", "tr", "<cmd>pc<CR>") -- Close preview window
+map("n", "tw", "<cmd>Buffers<CR>")
+map("n", "tt", "<cmd>b#<CR>")
+map("n", "tq", "<cmd>bd<CR>")
+map("n", "ts", "<cmd>GitGutterStageHunk<CR>")
+map("n", "tx", "<cmd>GitGutterUndoHunk<CR>")
+map("n", "]h", "<cmd>GitGutterNextHunk<CR>")
+map("n", "[h", "<cmd>GitGutterPrevHunk<CR>")
+map("n", "te", "<cmd>Git! fetch<CR>")
+map("n", "tg", "<cmd>Git<CR>")
+map("n", "td", "<cmd>Gdiffsplit!<CR>")
+map("n", "tb", "<cmd>GBranches<CR>")
 
 -- Visual mode search
 map("v", "//", ":y/\\V<C-R>=escape(@\",'/\\')<CR><CR>")
