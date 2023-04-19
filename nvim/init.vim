@@ -18,6 +18,7 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " Fast Python linter
 " Plug 'neoclide/coc.nvim', {'branch': 'release'} " coc.nvim C syntax
 " Plug 'deoplete-plugins/deoplete-clang'
 " Plug 'dense-analysis/ale'
+Plug 'chrisgrieser/nvim-spider' " Awesome word traversal plugin
 Plug 'sheerun/vim-polyglot'
 " Plug 'rking/ag.vim' " Text search
 " Plug 'Chun-Yang/vim-action-ag' " Ag compliment
@@ -96,6 +97,18 @@ hi clear GitGutterDelete
 " endif
 
 " Shortcuts
+"  commands:                            modes:
+"                                       Normal  Visual+Select  Operator-pending
+"  :map   :noremap   :unmap   :mapclear  yes    yes             yes
+"  :nmap  :nnoremap  :nunmap  :nmapclear yes    -               -
+"  :vmap  :vnoremap  :vunmap  :vmapclear -      yes             -
+"  :omap  :onoremap  :ounmap  :omapclear -      -               yes
+
+map w <cmd>lua require('spider').motion('w')<CR>
+map e <cmd>lua require('spider').motion('e')<CR>
+map b <cmd>lua require('spider').motion('b')<CR>
+map ge <cmd>lua require('spider').motion('ge')<CR>
+
 tnoremap <Esc> <C-\><C-n>
 nnoremap <C-e> <C-u>
 " nnoremap à :belowright split term://zsh<CR>:resize 15<CR>A
