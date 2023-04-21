@@ -127,7 +127,7 @@ noremap ts <cmd>GitGutterStageHunk<CR>
 noremap tx <cmd>GitGutterUndoHunk<CR>
 noremap ]h <cmd>GitGutterNextHunk<CR>
 noremap [h <cmd>GitGutterPrevHunk<CR>
-noremap tg <cmd>Git<CR>
+noremap tg <cmd>Git \| NERDTreeClose<CR>
 noremap td <cmd>Gdiffsplit!<CR>
 noremap tb <cmd>GBranches<CR>
 noremap te <cmd>Git! fetch<CR>
