@@ -97,7 +97,7 @@ map("n", "tx", "<cmd>GitGutterUndoHunk<CR>")
 map("n", "]h", "<cmd>GitGutterNextHunk<CR>")
 map("n", "[h", "<cmd>GitGutterPrevHunk<CR>")
 map("n", "te", "<cmd>Git! fetch<CR>")
-map("n", "tg", "<cmd>Git<CR>")
+map("n", "tg", "<cmd>Git | NERDTreeClose<CR>")
 map("n", "td", "<cmd>Gdiffsplit!<CR>")
 map("n", "tb", "<cmd>GBranches<CR>")
 
