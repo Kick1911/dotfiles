@@ -1,6 +1,7 @@
-require("number_line")
-require("compatible-pack")
-require("preview_window")
+require "number_line"
+require "compatible-pack"
+require "preview_window"
+require "idle-cursor"
 
 local Plug = vim.fn['plug#']
 
@@ -101,7 +102,9 @@ map("n", "td", "<cmd>Gdiffsplit!<CR>")
 map("n", "tb", "<cmd>GBranches<CR>")
 
 -- Visual mode search
-map("v", "//", ":y/\\V<C-R>=escape(@\",'/\\')<CR><CR>")
+vim.cmd [[
+vmap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+]]
 
 -- Default colour of line number
 vim.cmd [[
