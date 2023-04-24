@@ -33,6 +33,7 @@ end
 
 vim.cmd [[
 set cursorline
+set relativenumber
 set cursorlineopt=both
 hi CursorLineNr cterm=bold
 ]]
