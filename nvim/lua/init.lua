@@ -1,7 +1,7 @@
 require "number_line"
 require "compatible-pack"
 require "preview_window"
-require "idle-cursor"
+-- require "idle-cursor"
 
 local Plug = vim.fn['plug#']
 
@@ -27,8 +27,10 @@ vim.call('plug#end')
 require'lspconfig'.clangd.setup{}
 -- require'lspconfig'.pyright.setup{}
 
+-- Default : "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 vim.cmd [[
 let g:deoplete#enable_at_startup = 1
+set guicursor=v-c-sm:block,n-i-ci-ve:ver25,r-cr-o:hor20,a:blinkon100
 ]]
 vim.g.airline_theme = 'base16'
 vim.g.airline_powerline_fonts=1
