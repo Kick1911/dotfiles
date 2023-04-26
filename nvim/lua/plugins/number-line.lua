@@ -1,8 +1,10 @@
 require "ratio"
 
+
 function precision(f, digits)
     return math.floor(f * (10 * digits)) / (10 * digits)
 end
+
 
 function numberBgColour()
     local r, c = unpack(vim.api.nvim_win_get_cursor(0))
@@ -28,11 +30,11 @@ function numberBgColour()
     if func then func() end
 end
 
-local _group = vim.api.nvim_create_augroup("LineNumber", { clear = true })
 
 vim.cmd [[
 set cursorline
-set cursorlineopt=number
+set relativenumber
+set cursorlineopt=both
 hi CursorLineNr cterm=bold
 ]]
 vim.api.nvim_create_autocmd(
@@ -41,6 +43,6 @@ vim.api.nvim_create_autocmd(
         pattern = "*",
         callback = numberBgColour,
         once = false,
-        group = _group
+        group = vim.api.nvim_create_augroup("LineNumber", { clear = true })
     }
 )
