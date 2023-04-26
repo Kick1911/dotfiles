@@ -1,7 +1,5 @@
-require "number_line"
-require "compatible-pack"
-require "preview_window"
--- require "idle-cursor"
+require "plugins"
+require "experimental"
 
 local Plug = vim.fn['plug#']
 

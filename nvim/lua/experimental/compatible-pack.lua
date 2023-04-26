@@ -1,6 +1,6 @@
 local state = "redo"
 
--- TODO: This needs to reset when new changes are made
+
 function ChangeDirection(ev)
     if state == "undo" then
         state = "redo"
@@ -30,7 +30,7 @@ vim.keymap.set({"n"}, "u", ChangeDirection)
 vim.keymap.set({"n"}, "<C-r>", NextStep)
 
 vim.api.nvim_create_autocmd(
-    { "InsertChange" },
+    { "InsertChange", "InsertEnter" },
     {
         pattern = "*",
         callback = ResetState,
