@@ -32,4 +32,4 @@ picom -b
 GAZE_LOG_FILE_DIR=$HOME/.gaze gazed -D
 firefox &
 google-chrome &
-kodi &
+# kodi &
