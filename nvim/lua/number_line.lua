@@ -32,6 +32,7 @@ local _group = vim.api.nvim_create_augroup("LineNumber", { clear = true })
 
 vim.cmd [[
 set cursorline
+set relativenumber
 set cursorlineopt=both
 hi CursorLineNr cterm=bold
 ]]
