@@ -24,6 +24,7 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'rking/ag.vim' " Text search
 " Plug 'Chun-Yang/vim-action-ag' " Ag compliment
 " Plug 'rafi/awesome-vim-colorschemes'
+Plug 'neovim/nvim-lspconfig' " LSP
 
 " Code {{{
 " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -36,6 +37,8 @@ Plug 'airblade/vim-gitgutter'
 
 " Initialize plugin system
 call plug#end()
+
+lua require('lspconfig').pyright.setup{}
 
 let g:lightline = {
       \ 'active': {
