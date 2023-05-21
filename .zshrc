@@ -39,6 +39,7 @@ fi
 
 export PATH=$PATH:/opt/bin
 export PATH=$PATH:/home/kick/.local/bin
+export PATH=$PATH:/usr/local/musl/bin
 export LD_LIBRARY_PATH=/opt/lib
 export LIBRARY_PATH=$LD_LIBRARY_PATH
 export C_INCLUDE_PATH=/opt/include
