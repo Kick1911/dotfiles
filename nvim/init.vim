@@ -14,8 +14,8 @@ Plug 'vim-airline/vim-airline-themes' " Themes
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " Fast Python linter
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " Fast Python linter
 " Plug 'neoclide/coc.nvim', {'branch': 'release'} " coc.nvim C syntax
 " Plug 'deoplete-plugins/deoplete-clang'
 " Plug 'dense-analysis/ale'
@@ -32,13 +32,16 @@ Plug 'neovim/nvim-lspconfig' " LSP
 
 " GIT {{{
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+Plug 'tanvirtin/vgit.nvim'
+Plug 'nvim-lua/plenary.nvim'
+" Plug 'airblade/vim-gitgutter'
 " }}}
 
 " Initialize plugin system
 call plug#end()
 
-lua require('lspconfig').pyright.setup{}
+lua require("lsp")
+lua require('vgit').setup()
 
 let g:lightline = {
       \ 'active': {
@@ -126,10 +129,10 @@ noremap tw <cmd>Buffers<CR>
 noremap tt <cmd>b#<CR>
 noremap tq <cmd>bd<CR>
 noremap tw <cmd>Buffers<CR>
-noremap ts <cmd>GitGutterStageHunk<CR>
-noremap tx <cmd>GitGutterUndoHunk<CR>
-noremap ]h <cmd>GitGutterNextHunk<CR>
-noremap [h <cmd>GitGutterPrevHunk<CR>
+noremap ts <cmd>VGit buffer_hunk_stage<CR>
+noremap tx <cmd>VGit buffer_hunk_reset<CR>
+noremap ]h <cmd>VGit hunk_down<CR>
+noremap [h <cmd>VGit hunk_up<CR>
 noremap tg <cmd>Git \| NERDTreeClose<CR>
 noremap td <cmd>Gdiffsplit!<CR>
 noremap tb <cmd>GBranches<CR>
