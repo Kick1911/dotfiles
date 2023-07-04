@@ -32,16 +32,13 @@ Plug 'neovim/nvim-lspconfig' " LSP
 
 " GIT {{{
 Plug 'tpope/vim-fugitive'
-Plug 'tanvirtin/vgit.nvim'
-Plug 'nvim-lua/plenary.nvim'
-" Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 " }}}
 
 " Initialize plugin system
 call plug#end()
 
 lua require("lsp")
-lua require('vgit').setup()
 
 let g:lightline = {
       \ 'active': {
@@ -116,6 +113,9 @@ nmap e <cmd>lua require('spider').motion('e')<CR>
 nmap b <cmd>lua require('spider').motion('b')<CR>
 nmap ge <cmd>lua require('spider').motion('ge')<CR>
 
+noremap <A-j> <cmd>m .+1<CR>
+noremap <A-k> <cmd>m .-2<CR>
+
 tnoremap <Esc> <C-\><C-n>
 nnoremap <C-e> <C-u>
 " nnoremap à :belowright split term://zsh<CR>:resize 15<CR>A
@@ -129,10 +129,10 @@ noremap tw <cmd>Buffers<CR>
 noremap tt <cmd>b#<CR>
 noremap tq <cmd>bd<CR>
 noremap tw <cmd>Buffers<CR>
-noremap ts <cmd>VGit buffer_hunk_stage<CR>
-noremap tx <cmd>VGit buffer_hunk_reset<CR>
-noremap ]h <cmd>VGit hunk_down<CR>
-noremap [h <cmd>VGit hunk_up<CR>
+noremap ts <cmd>GitGutterStageHunk<CR>
+noremap tx <cmd>GitGutterUndoHunk<CR>
+noremap ]h <cmd>GitGutterNextHunk<CR>
+noremap [h <cmd>GitGutterPrevHunk<CR>
 noremap tg <cmd>Git \| NERDTreeClose<CR>
 noremap td <cmd>Gdiffsplit!<CR>
 noremap tb <cmd>GBranches<CR>
