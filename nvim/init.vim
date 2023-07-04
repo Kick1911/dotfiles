@@ -113,8 +113,8 @@ nmap e <cmd>lua require('spider').motion('e')<CR>
 nmap b <cmd>lua require('spider').motion('b')<CR>
 nmap ge <cmd>lua require('spider').motion('ge')<CR>
 
-noremap <A-j> <cmd>m .+1<CR>
-noremap <A-k> <cmd>m .-2<CR>
+noremap <A-j> <cmd>m .+1<CR>==
+noremap <A-k> <cmd>m .-2<CR>==
 
 tnoremap <Esc> <C-\><C-n>
 nnoremap <C-e> <C-u>
