@@ -25,6 +25,7 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'Chun-Yang/vim-action-ag' " Ag compliment
 " Plug 'rafi/awesome-vim-colorschemes'
 Plug 'neovim/nvim-lspconfig' " LSP
+Plug 'ray-x/lsp_signature.nvim'
 
 " Code {{{
 " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -115,6 +116,10 @@ nmap ge <cmd>lua require('spider').motion('ge')<CR>
 
 noremap <A-j> <cmd>m .+1<CR>==
 noremap <A-k> <cmd>m .-2<CR>==
+inoremap <A-j> <Esc><cmd>m .+1<CR>==gi
+inoremap <A-k> <Esc><cmd>m .-2<CR>==gi
+vnoremap <A-j> <cmd>m '>+1<CR>gv=gv
+vnoremap <A-k> <cmd>m '<-2<CR>gv=gv
 
 tnoremap <Esc> <C-\><C-n>
 nnoremap <C-e> <C-u>
