@@ -11,17 +11,25 @@ Plug 'vim-airline/vim-airline-themes' -- Themes
 Plug('junegunn/fzf', {dir = '~/.fzf', ['do'] = './install --all'})
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
-Plug('neoclide/coc.nvim', {branch = 'release'}) -- coc.nvim C syntax
-Plug('Shougo/deoplete.nvim', {['do'] = ':UpdateRemotePlugins'})
-Plug('numirias/semshi', {['do'] = ':UpdateRemotePlugins'}) -- Fast Python linter
 Plug 'chrisgrieser/nvim-spider'
+Plug 'sheerun/vim-polyglot'
 
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'ray-x/lsp_signature.nvim'
+-- Plug('nvim-telescope/telescope.nvim', {branch = '0.1.1'})
+
+-- GIT plugins
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'neovim/nvim-lspconfig'
 
 vim.call('plug#end')
 
+require("mason").setup()
+require("mason-lspconfig").setup()
+
+require("lsp")
 require'lspconfig'.clangd.setup{}
 -- require'lspconfig'.pyright.setup{}
 
@@ -77,6 +85,13 @@ map("v", "<up>", "<NOP>")
 map("v", "<down>", "<NOP>")
 map("v", "<left>", "<NOP>")
 map("v", "<right>", "<NOP>")
+
+map("n", "<A-j>", "<cmd>m .+1<CR>==")
+map("n", "<A-k>", "<cmd>m .-2<CR>==")
+map("v", "<A-j>", "<cmd>m '>+1<CR>gv=gv")
+map("v", "<A-k>", "<cmd>m '<-2<CR>gv=gv")
+map("i", "<A-j>", "<Esc><cmd>m .+1<CR>==gi")
+map("i", "<A-k>", "<Esc><cmd>m .-2<CR>==gi")
 
 map("n", "<C-e>", "<C-u>")
 map("t", "<Esc>", "<C-\\><C-n>")
