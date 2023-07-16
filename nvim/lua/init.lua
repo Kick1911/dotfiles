@@ -12,13 +12,14 @@ Plug('junegunn/fzf', {dir = '~/.fzf', ['do'] = './install --all'})
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'chrisgrieser/nvim-spider'
-Plug 'sheerun/vim-polyglot'
+-- Plug 'sheerun/vim-polyglot'
 
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'ray-x/lsp_signature.nvim'
 -- Plug('nvim-telescope/telescope.nvim', {branch = '0.1.1'})
+Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 
 -- GIT plugins
 Plug 'tpope/vim-fugitive'
