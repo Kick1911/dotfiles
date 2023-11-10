@@ -94,6 +94,8 @@ map("v", "<A-k>", "<cmd>m '<-2<CR>gv=gv")
 map("i", "<A-j>", "<Esc><cmd>m .+1<CR>==gi")
 map("i", "<A-k>", "<Esc><cmd>m .-2<CR>==gi")
 
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
 map("n", "<C-e>", "<C-u>")
 map("t", "<Esc>", "<C-\\><C-n>")
 map("n", "<Esc>", "<cmd>set hlsearch!<CR>")
