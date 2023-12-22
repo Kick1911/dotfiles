@@ -28,7 +28,7 @@ xset -dpms
 xset s off
 
 xfce4-session &
-picom -b
+compton -b
 GAZE_LOG_FILE_DIR=$HOME/.gaze gazed -D
 firefox &
 google-chrome &
