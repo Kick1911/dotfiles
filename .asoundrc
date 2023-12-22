@@ -10,6 +10,12 @@ pcm.optical {
   device 0
 }
 
+pcm.hdmi_audio {
+  type hw
+  card "HDMI"
+  device 8
+}
+
 pcm.mic {
   type hw
   card 0
@@ -35,7 +41,7 @@ pcm.laptop {
 
 pcm.!default{
     type plug
-    slave.pcm "usb"
+    slave.pcm "hdmi_audio"
 }
 
 #defaults.pcm.!card AUDIO
