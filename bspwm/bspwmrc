@@ -20,5 +20,5 @@ bspc rule -a Screenkey manage=off
 xsetroot -cursor_name left_ptr
 
 xfce4-session &
-picom -b
+compton -b
 GAZE_LOG_FILE_DIR=$HOME/.gaze gazed -D
