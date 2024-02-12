@@ -1,6 +1,6 @@
 !! COLOURS !!
 
-URxvt*font: xft:DejaVu Sans Mono:size=8,style=regular
+URxvt*font: xft:DejaVu Sans Mono:size=12,style=regular
 URxvt*scrollBar: false
 URxvt*fading: 40
 
