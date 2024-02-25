@@ -11,10 +11,8 @@ Plug 'vim-airline/vim-airline-themes' -- Themes
 Plug('junegunn/fzf', {dir = '~/.fzf', ['do'] = './install --all'})
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
-Plug('neoclide/coc.nvim', {branch = 'release'}) -- coc.nvim C syntax
-Plug('Shougo/deoplete.nvim', {['do'] = ':UpdateRemotePlugins'})
-Plug('numirias/semshi', {['do'] = ':UpdateRemotePlugins'}) -- Fast Python linter
-Plug 'chrisgrieser/nvim-spider'
+-- Plug 'chrisgrieser/nvim-spider'
+Plug 'sheerun/vim-polyglot'
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -39,7 +37,15 @@ vim.g.airline_right_alt_sep = ''
 vim.g.workspace_autosave_always = 1
 vim.g.gitgutter_highlight_linenrs = 0
 vim.g.fzf_checkout_git_options = '--sort=-committerdate'
+
 vim.g.haskell_classic_highlighting = 1
+vim.g.haskell_enable_quantification = 1   -- to enable highlighting of `forall`
+vim.g.haskell_enable_recursivedo = 1      -- to enable highlighting of `mdo` and `rec`
+vim.g.haskell_enable_arrowsyntax = 1      -- to enable highlighting of `proc`
+vim.g.haskell_enable_pattern_synonyms = 1 -- to enable highlighting of `pattern`
+vim.g.haskell_enable_typeroles = 1        -- to enable highlighting of type roles
+vim.g.haskell_enable_static_pointers = 1  -- to enable highlighting of `static`
+vim.g.haskell_backpack = 1                -- to enable highlighting of backpack keywords
 --[[
 vim.g.lightline = {
   active = {
@@ -57,10 +63,10 @@ function map(mode, lhs, rhs)
 end
 
 -- Shortcuts
-vim.keymap.set({"n"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
-vim.keymap.set({"n"}, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
-vim.keymap.set({"n"}, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
-vim.keymap.set({"n"}, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+-- vim.keymap.set({"n"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+-- vim.keymap.set({"n"}, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+-- vim.keymap.set({"n"}, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+-- vim.keymap.set({"n"}, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
 
 -- Disable movement in insert mode
 map("i", "<up>", "<NOP>")
@@ -78,7 +84,16 @@ map("v", "<down>", "<NOP>")
 map("v", "<left>", "<NOP>")
 map("v", "<right>", "<NOP>")
 
-map("n", "<C-e>", "<C-u>")
+map("n", "<A-j>", "<cmd>m .+1<CR>==")
+map("n", "<A-k>", "<cmd>m .-2<CR>==")
+map("v", "<A-j>", "<cmd>m '>+1<CR>gv=gv")
+map("v", "<A-k>", "<cmd>m '<-2<CR>gv=gv")
+map("i", "<A-j>", "<Esc><cmd>m .+1<CR>==gi")
+map("i", "<A-k>", "<Esc><cmd>m .-2<CR>==gi")
+
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
+map("n", "<C-e>", "<C-u>zz")
 map("t", "<Esc>", "<C-\\><C-n>")
 map("n", "<Esc>", "<cmd>set hlsearch!<CR>")
 map("n", "<M-Esc>", "<cmd>NERDTreeFind<CR>")
@@ -108,6 +123,8 @@ vmap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 -- Default colour of line number
 vim.cmd [[
+hi Todo ctermbg=yellow
+hi Fixme ctermbg=yellow
 hi LineNr ctermfg=blue
 hi Search cterm=NONE ctermfg=red ctermbg=lightgreen
 hi CocFloating ctermfg=red ctermbg=black
@@ -136,6 +153,12 @@ set list
 set colorcolumn=79
 setlocal foldmethod=indent
 set mouse=
+]]
+
+vim.cmd [[
+syn keyword ldTodo          contained TODO FIXME XXX NOTE
+syn region  ldComment       start='/\*' end='\*/' contains=ldTodo,@Spell
+hi def link ldTodo          Todo
 ]]
 
 -- Commands
