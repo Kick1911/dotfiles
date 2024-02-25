@@ -1,0 +1,3 @@
+name = backgrounds
+command = /home/kick/Documents/dotfiles/etc/xinitrc.d/52-background-image.sh
+environ = DISPLAY=:0,HOME=/home/kick

@@ -1,0 +1,5 @@
+name = polybar
+command =  polybar main
+environ = DISPLAY=:0,HOME=/home/kick
+always_restart = true
+restart_cooldown = 60
