@@ -1,3 +1,0 @@
-name = mpd
-command = mpd --no-daemon /home/kick/.config/mpd/mpd.conf
-environ = DISPLAY=:0,HOME=/home/kick

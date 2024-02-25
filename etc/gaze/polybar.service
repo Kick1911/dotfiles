@@ -1,5 +1,5 @@
 name = polybar
-command =  polybar main
+command =  polybar laptop
 environ = DISPLAY=:0,HOME=/home/kick
 always_restart = true
 restart_cooldown = 60
