@@ -179,6 +179,7 @@ export CC=gcc
 
 ## aliases ##
 alias vi='nvim'
+alias make='make -j'
 alias ls='ls -N --color=auto -v'
 alias upgrade='sudo vkpurge rm all; sudo xbps-install -Su'
 alias load='sudo xbps-install'
