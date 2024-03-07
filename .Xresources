@@ -1,6 +1,6 @@
 !! COLOURS !!
 
-URxvt*font: xft:DejaVu Sans Mono:size=8,style=regular
+URxvt*font: xft:DejaVu Sans Mono:size=11,style=Book
 URxvt*scrollBar: false
 URxvt*fading: 40
 
@@ -29,4 +29,4 @@ Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
 XTerm*metaSendsEscape: true
 
 *.foreground:   #d4e8dc
-*.background:   #4d5e72
+*.background:   #2e3436

@@ -26,6 +26,7 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'rafi/awesome-vim-colorschemes'
 Plug 'neovim/nvim-lspconfig' " LSP
 Plug 'ray-x/lsp_signature.nvim'
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Code {{{
 " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -109,11 +110,6 @@ hi clear GitGutterDelete
 "  :vmap  :vnoremap  :vunmap  :vmapclear -      yes             -
 "  :omap  :onoremap  :ounmap  :omapclear -      -               yes
 
-nmap w <cmd>lua require('spider').motion('w')<CR>
-nmap e <cmd>lua require('spider').motion('e')<CR>
-nmap b <cmd>lua require('spider').motion('b')<CR>
-nmap ge <cmd>lua require('spider').motion('ge')<CR>
-
 noremap <A-j> <cmd>m .+1<CR>==
 noremap <A-k> <cmd>m .-2<CR>==
 inoremap <A-j> <Esc><cmd>m .+1<CR>==gi
@@ -121,6 +117,8 @@ inoremap <A-k> <Esc><cmd>m .-2<CR>==gi
 vnoremap <A-j> <cmd>m '>+1<CR>gv=gv
 vnoremap <A-k> <cmd>m '<-2<CR>gv=gv
 
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
 tnoremap <Esc> <C-\><C-n>
 nnoremap <C-e> <C-u>
 " nnoremap à :belowright split term://zsh<CR>:resize 15<CR>A
