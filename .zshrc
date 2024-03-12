@@ -179,6 +179,9 @@ export CC=gcc
 
 ## aliases ##
 alias vi='nvim'
+alias refresh_font='fc-cache -f -v'
+alias refresh_xresources='xrdb -merge ~/.Xresources'
+alias make='make -j'
 alias ls='ls -N --color=auto -v'
 alias upgrade='sudo vkpurge rm all; sudo xbps-install -Su'
 alias load='sudo xbps-install'
