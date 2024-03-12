@@ -1,8 +1,9 @@
 !! COLOURS !!
 
-URxvt*font: xft:DejaVu Sans Mono:size=12,style=regular
+URxvt*font: xft:Courier Prime Code:size=14,style=regular
 URxvt*scrollBar: false
 URxvt*fading: 40
+URxvt*cursorUnderline: true
 
 !! Click URLs !!
 URxvt.perl-ext-common: default,matcher
@@ -18,7 +19,7 @@ URxvt.url-select.underline: true
 
 XTerm.vt100.backarrowKey: false
 XTerm.ttyModes: erase ^?
-XTerm*faceName: DejaVu Sans Mono
+XTerm*faceName: Courier Prime Code Italic
 XTerm*faceSize: 12
 XTerm.vt100.translations: #override \n\
 	Ctrl <Key> minus: smaller-vt-font() \n\
@@ -29,4 +30,5 @@ Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
 XTerm*metaSendsEscape: true
 
 *.foreground:   #d4e8dc
-*.background:   #4d5e72
+*.background:   #000000
+!! *.background:   #4d5e72
