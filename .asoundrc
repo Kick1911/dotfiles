@@ -41,7 +41,7 @@ pcm.laptop {
 
 pcm.!default{
     type plug
-    slave.pcm "hdmi_audio"
+    slave.pcm "usb"
 }
 
 #defaults.pcm.!card AUDIO

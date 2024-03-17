@@ -18,7 +18,7 @@ bspc rule -a mpv state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-bspc rule -a firefox desktop='^1'
+bspc rule -a Firefox desktop='^1'
 bspc rule -a Google-chrome desktop='^3'
 bspc rule -a Kodi desktop='^5'
 
@@ -31,5 +31,5 @@ xfce4-session &
 compton -b
 GAZE_LOG_FILE_DIR=$HOME/.gaze gazed -D
 firefox &
-google-chrome &
+google-chrome --alsa-output-device=hw:2,0 &
 # kodi &

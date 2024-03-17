@@ -179,6 +179,7 @@ export CC=gcc
 
 ## aliases ##
 alias vi='nvim'
+alias run_fzf='fzf -m --print0 | xargs -0'
 alias ls='ls -N --color=auto -v'
 alias upgrade='sudo vkpurge rm all; sudo xbps-install -Su'
 alias load='sudo xbps-install'
@@ -187,6 +188,7 @@ alias remove='sudo xbps-remove -R'
 alias mountusb='sudo mount -t vfat -o uid=$USER,gid=$USER,fmask=117'
 alias mountvault='sudo mount -t ecryptfs'
 alias cp='rsync --info=progress2 -avz'
+alias google-chrome='google-chrome --alsa-output-device=hw:2,0'
 
 ## translate
 #alias u='translate -i'
