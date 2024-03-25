@@ -28,7 +28,17 @@ vim.cmd [[
 let g:deoplete#enable_at_startup = 1
 set guicursor=v-c-sm:block,n-i-ci-ve:ver25,r-cr-o:hor20,a:blinkon100
 ]]
+
 vim.g.airline_theme = 'base16'
+vim.cmd [[
+let g:airline_section_a = airline#section#create(['mode'])
+let g:airline_section_b = airline#section#create_left(['%f'])
+let g:airline_section_c = airline#section#create(['%{airline#extensions#branch#get_head()}'])
+let g:airline_section_x = airline#section#create([''])
+let g:airline_section_y = airline#section#create([''])
+let g:airline_section_z = airline#section#create_right(['filetype'])
+]]
+
 vim.g.airline_powerline_fonts=1
 vim.g.airline_left_sep = ''
 vim.g.airline_left_alt_sep = ''
