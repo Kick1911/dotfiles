@@ -32,8 +32,8 @@ set guicursor=v-c-sm:block,n-i-ci-ve:ver25,r-cr-o:hor20,a:blinkon100
 vim.g.airline_theme = 'base16'
 vim.cmd [[
 let g:airline_section_a = airline#section#create(['mode'])
-let g:airline_section_b = airline#section#create_left(['%f'])
-let g:airline_section_c = airline#section#create(['%{airline#extensions#branch#get_head()}'])
+let g:airline_section_b = airline#section#create(['%{airline#extensions#branch#get_head()}'])
+let g:airline_section_c = airline#section#create(['%f'])
 let g:airline_section_x = airline#section#create([''])
 let g:airline_section_y = airline#section#create([''])
 let g:airline_section_z = airline#section#create_right(['filetype'])
