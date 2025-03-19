@@ -19,7 +19,7 @@ Plug 'stsewd/fzf-checkout.vim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'} " coc.nvim C syntax
 " Plug 'deoplete-plugins/deoplete-clang'
 " Plug 'dense-analysis/ale'
-Plug 'chrisgrieser/nvim-spider' " Awesome word traversal plugin
+" Plug 'chrisgrieser/nvim-spider' " Awesome word traversal plugin
 Plug 'sheerun/vim-polyglot'
 " Plug 'rking/ag.vim' " Text search
 " Plug 'Chun-Yang/vim-action-ag' " Ag compliment

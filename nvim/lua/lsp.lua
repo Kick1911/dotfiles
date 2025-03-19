@@ -80,8 +80,8 @@ local cfg = {
   move_cursor_key = nil, -- imap, use nvim_set_current_win to move cursor between current win and floating
 }
 
-require "lsp_signature".setup(cfg)
+-- require "lsp_signature".setup(cfg)
 
-vim.keymap.set({ 'n' }, '<C-k>', function()
-    vim.lsp.buf.signature_help()
-end, { silent = true, noremap = true, desc = 'toggle signature' })
+-- vim.keymap.set({ 'n' }, '<C-k>', function()
+--     vim.lsp.buf.signature_help()
+-- end, { silent = true, noremap = true, desc = 'toggle signature' })
