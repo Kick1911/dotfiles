@@ -53,6 +53,12 @@ let g:lightline = {
       \ }
 let g:deoplete#enable_at_startup = 1
 let g:airline_theme = 'base16'
+let g:airline_section_a = airline#section#create(['mode'])
+let g:airline_section_b = airline#section#create(['%{airline#extensions#branch#get_head()}'])
+let g:airline_section_c = airline#section#create(['%f'])
+let g:airline_section_x = airline#section#create([''])
+let g:airline_section_y = airline#section#create([''])
+let g:airline_section_z = airline#section#create_right(['filetype'])
 let g:airline_powerline_fonts=1
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
