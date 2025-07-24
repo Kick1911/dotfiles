@@ -1,5 +1,5 @@
 require "plugins"
-require "experimental"
+-- require "experimental"
 
 local Plug = vim.fn['plug#']
 
@@ -12,16 +12,33 @@ Plug('junegunn/fzf', {dir = '~/.fzf', ['do'] = './install --all'})
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
 -- Plug 'chrisgrieser/nvim-spider'
-Plug 'sheerun/vim-polyglot'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'mhartington/oceanic-next' -- Treesitter highlighting
+
+Plug 'sakhnik/nvim-gdb'
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'neovim/nvim-lspconfig'
+-- Plug 'neovim/nvim-lspconfig'
 
 vim.call('plug#end')
 
-require'lspconfig'.clangd.setup{}
+-- require'lspconfig'.clangd.setup{}
 -- require'lspconfig'.pyright.setup{}
+
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "c" }, -- add more languages
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = { "c" },
+  },
+}
+
+vim.cmd [[
+set termguicolors
+syntax enable
+colorscheme OceanicNext
+]]
 
 -- Default : "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 vim.cmd [[
