@@ -38,6 +38,9 @@ syntax enable
 colorscheme OceanicNext
 ]]
 
+vim.api.nvim_set_hl(0, "DiffRemoved", { bg = "#8c3434" })
+vim.api.nvim_set_hl(0, "DiffAdded", { bg = "#558755" })
+
 -- Default : "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 vim.cmd [[
 let g:deoplete#enable_at_startup = 1
