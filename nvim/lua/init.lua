@@ -17,12 +17,14 @@ Plug 'mhartington/oceanic-next' -- Treesitter highlighting
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
--- Plug 'neovim/nvim-lspconfig'
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'ray-x/lsp_signature.nvim'
 
 vim.call('plug#end')
 
 -- require'lspconfig'.clangd.setup{}
--- require'lspconfig'.pyright.setup{}
+require'lspconfig'.pyright.setup{}
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "python" }, -- add more languages
