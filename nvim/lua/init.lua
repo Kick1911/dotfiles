@@ -19,12 +19,21 @@ Plug 'sakhnik/nvim-gdb'
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
--- Plug 'neovim/nvim-lspconfig'
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'ray-x/lsp_signature.nvim'
 
 vim.call('plug#end')
 
--- require'lspconfig'.clangd.setup{}
+require'lspconfig'.clangd.setup{}
 -- require'lspconfig'.pyright.setup{}
+
+vim.o.updatetime = 300
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.diagnostic.open_float(nil, { focus = false })
+  end,
+})
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "c" }, -- add more languages
@@ -39,6 +48,9 @@ set termguicolors
 syntax enable
 colorscheme OceanicNext
 ]]
+
+vim.api.nvim_set_hl(0, "DiffRemoved", { bg = "#8c3434" })
+vim.api.nvim_set_hl(0, "DiffAdded", { bg = "#558755" })
 
 -- Default : "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 vim.cmd [[
