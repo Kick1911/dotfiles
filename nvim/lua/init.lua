@@ -26,6 +26,13 @@ vim.call('plug#end')
 -- require'lspconfig'.clangd.setup{}
 require'lspconfig'.pyright.setup{}
 
+vim.o.updatetime = 300
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.diagnostic.open_float(nil, { focus = false })
+  end,
+})
+
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "python" }, -- add more languages
   highlight = {
