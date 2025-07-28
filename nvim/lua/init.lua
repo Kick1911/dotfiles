@@ -24,7 +24,7 @@ Plug 'ray-x/lsp_signature.nvim'
 vim.call('plug#end')
 
 -- require'lspconfig'.clangd.setup{}
-require'lspconfig'.pyright.setup{}
+-- require'lsp_python'
 
 vim.o.updatetime = 300
 vim.api.nvim_create_autocmd("CursorHold", {
@@ -35,6 +35,9 @@ vim.api.nvim_create_autocmd("CursorHold", {
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "python" }, -- add more languages
+  indent = {
+      enable = true,
+  },
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = { "python" },
