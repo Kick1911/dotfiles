@@ -36,11 +36,14 @@ vim.api.nvim_create_autocmd("CursorHold", {
 })
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c" }, -- add more languages
+  ensure_installed = { "c", "python" }, -- add more languages
   highlight = {
     enable = true,
-    additional_vim_regex_highlighting = { "c" },
+    additional_vim_regex_highlighting = { "c", "python" },
   },
+  indent = {
+      enable = true
+  }
 }
 
 vim.cmd [[
