@@ -7,9 +7,9 @@ XRC=/etc/xinitrc.d
 PWD := ${shell pwd}
 TARGETS=home-links configs packages /etc/X11/xorg.conf.d/20-amdgpu.conf
 
-NVIM_VERSION=0.8.3
+NVIM_VERSION=0.11.3
 PACKAGES=silversearcher-ag unclutter picom tlp bspwm polybar nodejs npm \
-		 suckless-tools
+		 suckless-tools tmux
 CONFIGS=bspwm nvim polybar sxhkd
 CONFIG_FILE_PATHS=${CONFIGS:%=${CONFIG_PATH}/%}
 HOME_LINKS=.Xsession .tmux.conf .gitconfig .asoundrc .p10k.zsh .gitignore_global
@@ -39,7 +39,7 @@ packages:
 	${Q}apt install -y ${PACKAGES}
 
 /usr/local/bin/nvim:
-	${Q}wget https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim.appimage -O $@
+	${Q}curl https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim-linux-x86_64.appimage -o $@
 
 neovim: /usr/local/bin/nvim
 	${Q}chmod 755 $<

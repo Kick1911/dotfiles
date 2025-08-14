@@ -1,0 +1,3 @@
+name = unclutter
+command = /usr/bin/unclutter
+environ = DISPLAY=:0,HOME=/home/kick
