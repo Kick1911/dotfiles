@@ -7,10 +7,10 @@ XRC=/etc/xinitrc.d
 PWD := ${shell pwd}
 TARGETS=home-links configs packages
 
-NVIM_VERSION=0.8.1
+NVIM_VERSION=0.11.3
 PACKAGES=silversearcher-ag unclutter tlp bspwm polybar nodejs npm \
-		 suckless-tools clangd
-CONFIGS=bspwm nvim polybar sxhkd
+		 tmux suckless-tools clangd picom
+CONFIGS=bspwm nvim polybar sxhkd picom
 CONFIG_FILE_PATHS=${CONFIGS:%=${CONFIG_PATH}/%}
 HOME_LINKS=.tmux.conf .gitconfig .asoundrc .p10k.zsh .gitignore_global
 HOME_LINK_PATHS=${HOME_LINKS:%=${HOME}/%}
@@ -39,7 +39,7 @@ packages:
 	${Q}apt install -y ${PACKAGES}
 
 /usr/local/bin/nvim: nvim/lua/*.so
-	${Q}wget https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim.appimage -O $@
+	${Q}curl https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim.appimage -o $@
 
 nvim/lua/*.so:
 	${Q}${MAKE} -C nvim/lua/c
