@@ -190,7 +190,7 @@ set nocindent
 packadd termdebug
 set listchars=tab:>-,trail:~,extends:>,precedes:<
 set list
-set colorcolumn=79
+set colorcolumn=100
 setlocal foldmethod=indent
 set mouse=
 ]]
