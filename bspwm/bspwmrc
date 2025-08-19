@@ -2,11 +2,11 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor HDMI-A-0 -d I II III IV w e r z x
+bspc monitor HDMI-1 -d I II III IV w e r z x
 # bspc monitor eDP1 -d I
 
 bspc config border_width         0
-bspc config window_gap          12
+bspc config window_gap          0
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
@@ -28,7 +28,7 @@ xset -dpms
 xset s off
 
 xfce4-session &
-compton -b
+picom -b
 GAZE_LOG_FILE_DIR=$HOME/.gaze gazed -D
 firefox &
 google-chrome --alsa-output-device=hw:2,0 &

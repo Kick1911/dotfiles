@@ -178,8 +178,8 @@ export CC=gcc
 #zstyle ':completion:*' special-dirs true
 
 ## aliases ##
-alias vi='nvim'
-alias run_fzf='fzf -m --print0 | xargs -0'
+# alias vi='nvim'
+alias run_fzf='fzf -m --print0 | xargs -0 -I {} echo "\"$PWD/{}\"" | xargs'
 alias ls='ls -N --color=auto -v'
 alias upgrade='sudo vkpurge rm all; sudo xbps-install -Su'
 alias load='sudo xbps-install'
