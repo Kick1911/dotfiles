@@ -1,4 +1,4 @@
-PACKAGES += zsh zsh-theme-powerlevel10k
+PACKAGES += zsh
 HOME_LINKS += .zshrc
 TARGETS += zsh
 ZSH_ETC_CONF=${PWD}/etc/zsh
