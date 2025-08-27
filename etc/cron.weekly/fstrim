@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export DISPLAY=:0
+
 notify-send 'TRIM in progress' --icon=dialog-information
 
 result=`fstrim -v /boot/efi`
