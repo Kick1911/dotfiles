@@ -1,0 +1,2 @@
+# External hard drive
+UUID=6964a724-06e5-4e14-be27-a45b989b9af4 /data              f2fs    defaults,nodiscard   0 1
