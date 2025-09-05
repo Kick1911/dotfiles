@@ -48,7 +48,7 @@ rz() {
   local args
   local cmd
 
-  args=$(fzf -m --print0 | xargs -0 -I {} printf "\"$PWD/{}\" ")
+  args=$(fzf -m --print0 --tac | xargs -0 -I {} printf "\"$PWD/{}\" ")
 
   [ -z "$args" ] && return
 
