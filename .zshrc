@@ -44,6 +44,20 @@ export LIBRARY_PATH=$LD_LIBRARY_PATH
 export C_INCLUDE_PATH=/opt/include
 export CC=gcc
 
+rz() {
+  local args
+  local cmd
+
+  args=$(fzf -m --print0 | xargs -0 -I {} printf "\"$PWD/{}\" ")
+
+  [ -z "$args" ] && return
+
+  cmd="$1 $args"
+  eval "$cmd"
+
+  echo ": $(date +%s):0;$cmd" >> ~/.zsh_history
+}
+
 ## Settings for umask
 #if (( EUID == 0 )); then
 #    umask 002
@@ -179,7 +193,7 @@ export CC=gcc
 
 ## aliases ##
 alias vi='nvim'
-alias run_fzf='fzf -m --print0 | xargs -0 -I {} echo "\"$PWD/{}\"" | xargs'
+# alias run_fzf='fzf -m --print0 | xargs -0 -I {} echo "\"$PWD/{}\"" | xargs'
 alias ls='ls -N --color=auto -v'
 alias upgrade='sudo vkpurge rm all; sudo xbps-install -Su'
 alias load='sudo xbps-install'
@@ -187,7 +201,7 @@ alias search='sudo xbps-query -Rs'
 alias remove='sudo xbps-remove -R'
 alias mountusb='sudo mount -t vfat -o uid=$USER,gid=$USER,fmask=117'
 alias mountvault='sudo mount -t ecryptfs'
-alias cp='rsync --info=progress2 -avz'
+# alias cp='rsync --info=progress2 -avz'
 alias google-chrome='google-chrome --alsa-output-device=hw:2,0'
 
 ## translate
