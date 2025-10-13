@@ -30,8 +30,6 @@ function M.toggle_undo()
     vim.cmd("normal! u")
     toggle_state.toggled = true
   end
-
-  move_cursor_down()
 end
 
 function M.redo()
@@ -47,8 +45,6 @@ function M.redo()
   else
     vim.cmd("redo")
   end
-
-  move_cursor_down()
 end
 
 function M.setup()
