@@ -23,8 +23,25 @@ Plug 'ray-x/lsp_signature.nvim'
 
 vim.call('plug#end')
 
--- require'lspconfig'.clangd.setup{}
--- require'lsp_python'
+require'lspconfig'.ruff_lsp.setup({
+    settings = {
+        ['ruff'] = {
+            format = {
+                enabled = true,
+            },
+        },
+    },
+    -- You may also want to configure keybindings for LSP actions
+    -- like code actions, go to definition, etc.
+    on_attach = function(client, bufnr)
+        -- Keybindings example:
+        local bufopts = { noremap=true, silent=true, buffer=bufnr }
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+        vim.keymap.set('n', 'tca', vim.lsp.buf.code_action, bufopts)
+        -- ... other keybindings
+    end,
+})
 
 vim.o.updatetime = 300
 vim.api.nvim_create_autocmd("CursorHold", {
