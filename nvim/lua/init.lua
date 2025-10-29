@@ -23,7 +23,7 @@ Plug 'ray-x/lsp_signature.nvim'
 
 vim.call('plug#end')
 
-require'lspconfig'.ruff_lsp.setup({
+require'lspconfig'.ruff.setup({
     settings = {
         ['ruff'] = {
             format = {
