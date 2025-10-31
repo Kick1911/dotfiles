@@ -14,16 +14,16 @@ function numberBgColour()
 
     local cleaned_ratio = precision(clean_ratio(ratio), 1) -- C function
     if cleaned_ratio == 0 then
-        vim.cmd [[ hi CursorLineNr ctermfg=cyan ]]
+        vim.cmd [[ hi CursorLineNr guifg=cyan ]]
         return
     end
 
     -- Colour ref: https://vimdoc.sourceforge.net/htmldoc/syntax.html#:highlight
     local funcs = {
-        [0.2] = function() vim.cmd [[ hi CursorLineNr ctermfg=green ]] end,
-        [0.4] = function() vim.cmd [[ hi CursorLineNr ctermfg=yellow ]] end,
-        [0.6] = function() vim.cmd [[ hi CursorLineNr ctermfg=magenta ]] end,
-        [0.8] = function() vim.cmd [[ hi CursorLineNr ctermfg=red ]] end
+        [0.2] = function() vim.cmd [[ hi CursorLineNr guifg=green ]] end,
+        [0.4] = function() vim.cmd [[ hi CursorLineNr guifg=yellow ]] end,
+        [0.6] = function() vim.cmd [[ hi CursorLineNr guifg=magenta ]] end,
+        [0.8] = function() vim.cmd [[ hi CursorLineNr guifg=red ]] end
     }
     -- print("cleaned_ratio", cleaned_ratio)
     local func = funcs[cleaned_ratio]
