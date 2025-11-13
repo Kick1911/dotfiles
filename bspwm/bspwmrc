@@ -26,6 +26,7 @@ xsetroot -cursor_name left_ptr
 # Disable screen sleep
 xset -dpms
 xset s off
+xrandr --output HDMI-1 --mode 3840x2160 --rate 120
 
 xfce4-session &
 picom -b
