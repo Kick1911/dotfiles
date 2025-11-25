@@ -32,7 +32,7 @@ local function gradient_colour(ratio)
 
   -- Now darken slightly as you scroll down, but not below background brightness
   local bg_min = 0x26 -- background channel (38)
-  local darken_factor = lerp(1.0, 0.6, t) -- never go below 60% brightness
+  local darken_factor = lerp(1.0, 0.6, ratio) -- never go below 60% brightness
   r = clamp(math.floor(r * darken_factor), bg_min, 255)
   g = clamp(math.floor(g * darken_factor), bg_min, 255)
   b = clamp(math.floor(b * darken_factor), bg_min, 255)
