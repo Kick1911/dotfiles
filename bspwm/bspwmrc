@@ -32,5 +32,5 @@ xfce4-session &
 picom -b
 GAZE_LOG_FILE_DIR=$HOME/.gaze gazed -D
 firefox &
-google-chrome --alsa-output-device=hw:2,0 &
+# google-chrome --alsa-output-device=hw:2,0 &
 # kodi &
