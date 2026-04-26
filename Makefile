@@ -10,7 +10,7 @@ TARGETS=home-links configs packages
 NVIM_VERSION=0.11.3
 PACKAGES=silversearcher-ag unclutter tlp bspwm polybar nodejs npm \
 		 tmux suckless-tools clangd picom feh
-CONFIGS=bspwm nvim polybar sxhkd picom
+CONFIGS=bspwm nvim polybar sxhkd picom ghostty
 CONFIG_FILE_PATHS=${CONFIGS:%=${CONFIG_PATH}/%}
 HOME_LINKS=.tmux.conf .gitconfig .asoundrc .p10k.zsh .gitignore_global
 HOME_LINK_PATHS=${HOME_LINKS:%=${HOME}/%}
