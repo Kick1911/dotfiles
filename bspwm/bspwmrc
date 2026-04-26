@@ -18,7 +18,7 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 xsetroot -cursor_name left_ptr
-xset r rate 200 40
+xset r rate 250 35
 
 xfce4-session &
 picom -b
