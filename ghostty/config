@@ -1,4 +1,5 @@
 term = xterm-256color
 window-decoration = false
-font-family = "Courier Prime"
-font-style = "Bold"
+font-family = "Courier Prime Code"
+font-style = "Italic"
+font-size = 16
