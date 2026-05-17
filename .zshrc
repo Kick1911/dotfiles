@@ -179,6 +179,7 @@ export CC=gcc
 
 ## aliases ##
 alias vi='nvim'
+alias firefox='MOZ_USE_XINPUT2=1 firefox'
 alias refresh_font='fc-cache -f -v'
 alias refresh_xresources='xrdb -merge ~/.Xresources'
 alias make='make -j'

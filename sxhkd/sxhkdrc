@@ -10,6 +10,9 @@ super + Return
 super + d
     dmenu_run
 
+super + v
+    clock
+
 super + l
     xsecurelock
 
