@@ -183,6 +183,7 @@ hi clear GitGutterDelete
 vim.cmd [[
 set cpoptions+=$ " Fix editing not really
 set cpoptions+=v " Fix backspacing
+set cpoptions+=u " Fix undo
 set hidden " Can change buffers without writing file
 set number
 set tabstop=4 shiftwidth=4 expandtab
