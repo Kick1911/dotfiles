@@ -3754,6 +3754,8 @@ fi
 
 zrclocal
 
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
 ## genrefcard.pl settings
 
 ### doc strings for external functions from files

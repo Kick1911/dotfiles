@@ -1,32 +1,26 @@
 require "plugins"
 -- require "experimental"
 
-local Plug = vim.fn['plug#']
 
-vim.call('plug#begin', '~/.config/nvim/plugged')
+require("mason").setup({
+  registries = {
+    "github:Crashdummyy/mason-registry", -- Adds Roslyn support
+    "github:mason-org/mason-registry",     -- Keeps standard packages
+  },
+})
 
-Plug 'Kick1911/nerdtree' -- NERD Tree
-Plug 'vim-airline/vim-airline' -- UI
-Plug 'vim-airline/vim-airline-themes' -- Themes
-Plug('junegunn/fzf', {dir = '~/.fzf', ['do'] = './install --all'})
-Plug 'junegunn/fzf.vim'
-Plug 'stsewd/fzf-checkout.vim'
--- Plug 'chrisgrieser/nvim-spider'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'mhartington/oceanic-next' -- Treesitter highlighting
-
-Plug 'sakhnik/nvim-gdb'
-
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
-Plug 'neovim/nvim-lspconfig'
-Plug 'ray-x/lsp_signature.nvim'
-
-vim.call('plug#end')
-
-require'lspconfig'.clangd.setup{}
--- require'lspconfig'.pyright.setup{}
+vim.lsp.enable("clangd")
+require('roslyn').setup({
+  args = {
+    '--logLevel=Information',
+  },
+  config = {
+    -- Pass your standard on_attach and capabilities here if you use them
+    on_attach = function(client, bufnr)
+      -- Your custom keymaps (e.g., gd for definition, K for hover)
+    end,
+  },
+})
 
 vim.o.updatetime = 300
 vim.api.nvim_create_autocmd("CursorHold", {
@@ -35,16 +29,18 @@ vim.api.nvim_create_autocmd("CursorHold", {
   end,
 })
 
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "python" }, -- add more languages
+require'nvim-treesitter'.setup {
   highlight = {
     enable = true,
-    additional_vim_regex_highlighting = { "c", "python" },
-  },
+    additional_vim_regex_highlighting = false,
+
   indent = {
-      enable = true
+    enable = true
   }
 }
+}
+require('nvim-treesitter').install { "c", "python", "c_sharp" }
+vim.opt.wildignore:append { "*/obj/*", "*/bin/*" }
 
 vim.cmd [[
 set termguicolors
