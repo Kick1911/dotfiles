@@ -55,6 +55,12 @@ vim.filetype.add({
   },
 })
 vim.opt.wildignore:append { "*/obj/*", "*/bin/*" }
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = '*',
+  callback = function()
+    pcall(vim.treesitter.start)
+  end,
+})
 
 vim.cmd [[
 set termguicolors
