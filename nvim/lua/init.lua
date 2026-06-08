@@ -34,12 +34,26 @@ require'nvim-treesitter'.setup {
     enable = true,
     additional_vim_regex_highlighting = false,
 
-  indent = {
-    enable = true
+    indent = {
+      enable = true
+    }
   }
 }
+require('nvim-treesitter').install {
+    "c",
+    "python",
+    "c_sharp",
+    "svelte",
+    "html",
+    "css",
+    "javascript",
+    "typescript"
 }
-require('nvim-treesitter').install { "c", "python", "c_sharp" }
+vim.filetype.add({
+  extension = {
+    svelte = "svelte",
+  },
+})
 vim.opt.wildignore:append { "*/obj/*", "*/bin/*" }
 
 vim.cmd [[
