@@ -2,3 +2,5 @@
 .vimrc
 compile_flags.txt
 tags
+
+**/.claude/settings.local.json

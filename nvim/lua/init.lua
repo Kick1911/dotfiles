@@ -9,19 +9,6 @@ require("mason").setup({
   },
 })
 
-vim.lsp.enable("clangd")
-require('roslyn').setup({
-  args = {
-    '--logLevel=Information',
-  },
-  config = {
-    -- Pass your standard on_attach and capabilities here if you use them
-    on_attach = function(client, bufnr)
-      -- Your custom keymaps (e.g., gd for definition, K for hover)
-    end,
-  },
-})
-
 vim.o.updatetime = 300
 vim.api.nvim_create_autocmd("CursorHold", {
   callback = function()

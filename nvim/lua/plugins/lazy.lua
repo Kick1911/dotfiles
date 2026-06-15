@@ -40,7 +40,27 @@ function M.setup()
       "sakhnik/nvim-gdb",
       "tpope/vim-fugitive",
       "airblade/vim-gitgutter",
-      "neovim/nvim-lspconfig",
+      {
+        "neovim/nvim-lspconfig",
+        config = function()
+          vim.lsp.enable("basedpyright")
+
+          vim.lsp.enable("clangd")
+
+          require('roslyn').setup({
+            args = {
+              '--logLevel=Information',
+            },
+            config = {
+              -- Pass your standard on_attach and capabilities here if you use them
+              on_attach = function(client, bufnr)
+                -- Your custom keymaps (e.g., gd for definition, K for hover)
+              end,
+            },
+          })
+
+        end,
+      },
       "mason-org/mason.nvim",
       "seblj/roslyn.nvim",
       "ray-x/lsp_signature.nvim",
