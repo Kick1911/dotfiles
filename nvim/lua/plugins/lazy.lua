@@ -41,6 +41,23 @@ function M.setup()
       "tpope/vim-fugitive",
       "airblade/vim-gitgutter",
       {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        ---@module "ibl"
+        ---@type ibl.config
+        opts = {
+          indent = {
+            char = "│", -- Can swap for ┊ or ┆
+            tab_char = "│",
+          },
+          scope = { -- Change scope colour vim.api.nvim_set_hl(0, "IblScope", { fg = "#ff8800" })
+            enabled = true,
+            show_start = false,
+            show_end = false,
+          },
+        },
+      },
+      {
         "neovim/nvim-lspconfig",
         config = function()
           vim.lsp.enable("pyrefly")

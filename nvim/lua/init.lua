@@ -200,8 +200,8 @@ set backspace=
 set nosmartindent
 set nocindent
 packadd termdebug
-set listchars=tab:>-,trail:~,extends:>,precedes:<
-set list
+" set listchars=tab:>-,trail:~,extends:>,precedes:<
+" set list
 set colorcolumn=79
 setlocal foldmethod=indent
 set mouse=
