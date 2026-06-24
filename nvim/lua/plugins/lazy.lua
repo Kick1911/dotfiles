@@ -43,8 +43,7 @@ function M.setup()
       {
         "neovim/nvim-lspconfig",
         config = function()
-          vim.lsp.enable("basedpyright")
-
+          vim.lsp.enable("pyrefly")
           vim.lsp.enable("clangd")
 
           require('roslyn').setup({
