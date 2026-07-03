@@ -32,6 +32,7 @@ require('nvim-treesitter').install {
     "c_sharp",
     "svelte",
     "html",
+    "xml",
     "css",
     "javascript",
     "typescript"
@@ -39,6 +40,11 @@ require('nvim-treesitter').install {
 vim.filetype.add({
   extension = {
     svelte = "svelte",
+  },
+})
+vim.filetype.add({
+  extension = {
+    axaml = "xml",
   },
 })
 vim.opt.wildignore:append { "*/obj/*", "*/bin/*" }
@@ -164,7 +170,7 @@ map("n", "]h", "<cmd>GitGutterNextHunk<CR>")
 map("n", "[h", "<cmd>GitGutterPrevHunk<CR>")
 map("n", "te", "<cmd>Git! fetch<CR>")
 map("n", "tg", "<cmd>Git | NERDTreeClose<CR>")
-map("n", "td", "<cmd>Gdiffsplit!<CR>")
+map("n", "td", "<cmd>Gvdiffsplit!<CR>")
 map("n", "tb", "<cmd>GBranches<CR>")
 
 -- Visual mode search

@@ -60,8 +60,10 @@ function M.setup()
       {
         "neovim/nvim-lspconfig",
         config = function()
+          vim.lsp.enable("lemminx")
           vim.lsp.enable("pyrefly")
           vim.lsp.enable("clangd")
+          vim.lsp.enable("gopls")
 
           require('roslyn').setup({
             args = {
