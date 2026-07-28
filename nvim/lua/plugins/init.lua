@@ -1,5 +1,6 @@
 local prefix = "./plugins/"
 require(prefix .. "number-line")
+require(prefix .. "undo")
 require(prefix .. "yank-highlight")
 -- require(prefix .. "hide-tabs")
 require(prefix .. "lazy").setup()

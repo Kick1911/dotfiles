@@ -207,12 +207,13 @@ set backspace=
 set nosmartindent
 set nocindent
 packadd termdebug
-" set listchars=tab:>-,trail:~,extends:>,precedes:<
-" set list
 set colorcolumn=79
 setlocal foldmethod=indent
 set mouse=
 ]]
+
+vim.wo.listchars = "tab:\\ ,trail:~,extends:>,precedes:<"
+vim.wo.list = true
 
 vim.cmd [[
 syn keyword ldTodo          contained TODO FIXME XXX NOTE
